@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function convertBase(m,n){//定义形参m为传入的10进制任意数字，n为要转换成的进制，不能为1或高于36
+        var arr=[];//定义数字保存余数
+        var base="0123456789abcdefghijklmnopqrstuvwxyz";//定义一个字符串来用字母替换高于10进制时的单位值
+        var newBase='';//定义空串，用以将数组转换成字符串
+        while (m>0){//当m>0时一直循环
+            arr.push(base[m%n]);//求模，将进行字符替换的值放入数组
+            m=parseInt(m/n);//对m处理后取整用以再次求模
+        }
+        //console.log(arr)
+        arr.reverse().map(//将数组先翻转，遍历后将字符串拼接返回给空串
+            function (value){
+                newBase+=value;
+            }
+        )
+        return newBase;
+    }
+    console.log(convertBase(200,36));
+</script>
+</body>
+</html>

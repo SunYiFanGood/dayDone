@@ -1,0 +1,55 @@
+.main(@_){//模式匹配
+    width:200px;
+    height:200px;
+    color: red;
+  }
+.main(display1){
+    display: flex;
+}
+.main(display2){
+    display: block;
+}
+  #out{
+    .main(display1);
+    #inner{
+      .main(display2);
+    }
+  }
+
+.main(@a,@b){//重载
+    width:@b;
+    height:200px;
+    color: @a;
+  }
+.main(@a){
+    width:200px;
+    height:200px;
+    color: @a;
+}
+
+  #out{
+    .main(red);
+    #inner{
+      .main(green,50px);
+    }
+  }
+
+
+
+  .main(@a){//守卫
+    width:@a;
+    height:200px;
+    color: green;
+  }
+.main(@a) when(@a>200px){
+    width:200px;
+    height:200px;
+    color: red;
+}
+
+  #out{
+    .main(250px);
+    #inner{
+      .main(50px);
+    }
+  }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj={
+        name:"aaa",
+        do:function (){
+            console.log("aaa");
+        },
+        arr:[1,2,2,2,5],
+        oo:{
+            school:"a"
+        }
+    }
+    function check(o){
+        return Object.prototype.toString.call(o).slice(8,-1).toLowerCase();
+    }
+    function deepClone(o){
+        //判断obj的数据类型,如果是对象则创建一个新对象，如果是数组则创建一个新数组，如果是其他的则return o；
+        if (check(o)==="object"){
+            var newObject= {};//如果是对象则创建一个空对象
+        }else if (check(o)==="array"){
+            var newObject=[];//如果是数组则创建一个空数组
+        }else{
+            return o;//其他情况直接return o
+        }
+        //开始浅拷贝，递归
+        for (var key in o){
+            newObject[key]=deepClone(o[key]);//递归o[key]直到返回值不是对象或者函数
+        }
+        return newObject;//返回新数组
+    }
+    var obj2=deepClone(obj);
+    console.log(obj2,obj2.oo===obj.oo)
+</script>
+</body>
+</html>

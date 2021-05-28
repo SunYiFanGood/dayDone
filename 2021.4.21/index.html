@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<script>
+    //for+if+逻辑运算+递增递减综合
+    {//现在有大车能装2吨货物油费300，中车能装1吨货物油费200，小车能装0.5吨货物油费160，三种车要求总共100辆，运输总100吨货物，怎么配置车型最省钱
+        var a, b, c;//定义三个变量分别代表大中小车
+        for (a = 0; a < 50; a++) {//大车最多50辆
+            for (b = 0; b < 100; b++) {//中车最多100辆
+                c = 100 - b - a;//小车数量
+                if ((a + b + c === 100) && (2 * a + b + c / 2 === 100)) {//当两个条件同时满足时满足要求
+                    var _orderBy = [];//定义一个数组存储所有情况
+                    var _all = {_big: a, _middle: b, _small: c, _sum: 300 * a + 200 * b + 160 * c};//定义一个对象保存每个情况具体参数，包括大中小车数量和总油费
+                    _orderBy.push(_all);//从0索引开始按顺序存下对象，代表一种情况
+                    _orderBy.sort(//以对象中油费和为条件，从小到大排列所有情况
+                        function (a, b) {
+                            return a._sum - b._sum;
+                        }
+                    )
+
+                    _orderBy.forEach(//遍历数组
+                        function (value, index) {
+                            console.log(value, index);//输出排序好的所有情况，第一个为油费最少的情况
+                        }
+                    );
+
+
+                }
+            }
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

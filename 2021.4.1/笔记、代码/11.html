@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sprite {
+            width: 192px;
+            background-color: #FFF;
+            /* border: 1px solid green; */
+            font-size: 0px;
+        }
+
+        #sprite div {
+            display: inline-block;
+            width: 64px;
+            height: 55px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+
+        #sprite div span {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            /* border: 1px solid yellow; */
+            background-image: url('./sprite.png');
+            background-repeat: no-repeat;
+        }
+
+        #sprite div strong {
+            /* border: 1px solid black; */
+            display: block;
+            height: 24px;
+            line-height: 24px;
+            font-size: 12px;
+            color: #000;
+            font-weight: normal;
+        }
+
+        #sprite div span.huafei {
+            background-position: -168px 0px;
+        }
+
+        #sprite div:hover span.huafei {
+            background-position: -420px 0px;
+        }
+
+        #sprite div span.jipiao {
+            background-position: -84px 0px;
+        }
+        #sprite div:hover span.jipiao {
+            background-position: -616px 0px;
+        }
+
+        #sprite div:hover strong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sprite">
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="jipiao"></span>
+            <strong>机票</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+        <div>
+            <span class="huafei"></span>
+            <strong>话费</strong>
+        </div>
+
+    </div>
+</body>
+
+</html>

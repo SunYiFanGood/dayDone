@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+  }
+  #menu{
+    width: 150px;
+    height: 200px;
+    background-color: #5eaf32;
+    display: none;
+      position: absolute;
+  }
+</style>
+<body>
+<ul id="menu">
+  <li>菜单</li>
+</ul>
+<script>
+  var oMenu=document.getElementById("menu");
+  document.oncontextmenu=function(e){
+    e.preventDefault();
+    var set={
+      x:e.clientX,
+      y:e.clientY
+    }
+    if (set.x+oMenu.offsetWidth>document.documentElement.clientWidth){
+        set.x-=oMenu.offsetWidth
+    }
+    if (set.y+oMenu.offsetHeight>document.documentElement.clientHeight){
+        set.y-=oMenu.offsetHeight
+    }
+    oMenu.style.display="block";
+    oMenu.style.left=set.x+"px";
+    oMenu.style.top=set.y+"px";
+    document.onclick=function (){
+        oMenu.style.display="none";
+        document.onclick=null;
+    }
+  }
+</script>
+</body>
+</html>

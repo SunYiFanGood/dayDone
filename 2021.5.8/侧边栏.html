@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        list-style:none;
+      }
+      #menu{
+        position: fixed;
+        right: 0;
+        top: 50%;
+        margin-top: -150px;
+        width: 100px;
+        height: 300px;
+        background-color: #16808e;
+        color: azure;
+        /*display: none;*/
+      }
+      #menu li{
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+      }
+      #menu2{
+        position: fixed;
+        right: 0;
+        top: 50%;
+        margin-top: -150px;
+        width: 100px;
+        height: 300px;
+        background-color: #16808e;
+        color: azure;
+      }
+      #menu2 li{
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        position: relative;
+        background-color: #8e1682;
+      }
+    </style>
+</head>
+<body>
+<ul id="menu2">
+  <li>菜单1</li>
+  <li>菜单2</li>
+  <li>菜单3</li>
+</ul>
+<ul id="menu">
+  <li>菜单1</li>
+  <li>菜单2</li>
+  <li>菜单3</li>
+</ul>
+
+<script>
+  var oLis=document.querySelectorAll("#menu li");
+  var oLis2=document.querySelectorAll("#menu2 li");
+
+
+  oLis.forEach(function (value,index){
+
+    value.onmouseenter=function (){
+
+      var timer;
+      var timer2;
+
+      var l=0;
+      timer=setInterval(function (){
+        l+=2;
+        if (l>100){
+            clearInterval(timer);
+            clearInterval(timer2);
+          l=100;
+        }
+        oLis2[index].style.right=l+"px";
+      },20);
+      value.onmouseleave=function (){
+          clearInterval(timer);
+          clearInterval(timer2);
+        timer2=setInterval(function (){
+
+          l-=2;
+          if (l<0){
+              clearInterval(timer);
+              clearInterval(timer2);
+            l=0;
+          }
+          oLis2[index].style.right=l+"px";
+        },20)
+      }
+
+
+    }
+
+  });
+</script>
+
+</body>
+</html>

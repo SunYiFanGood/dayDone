@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+      a:link{color:rgb(253, 253, 253);}
+      a{text-decoration: none;}
+      a:hover{color: rgb(24, 156, 24);}
+    body {
+      background: rgb(25, 26, 32);
+    }
+    ul li {
+      list-style: none;
+    }
+    .xxk li {
+      width: 186px;
+      height: 303px;
+    }
+
+    .xxk li {
+      float: left;
+      margin: 10px 10px 80px 10px;
+    }
+    .xxk li > div:nth-child(1) {
+      height: 303px;
+      float: left;
+      position: relative;
+      display: none;
+      z-index: 2;
+    }
+    .xxk li:hover div:nth-child(1){transition: all 0.5s ease;}
+    .xxk li:hover > div:nth-child(1) {
+      display: block;
+      transform: scale(1.1,1.1);
+    }
+    .xxk li:hover>div:nth-child(2){display: none;}
+    .xxk li:hover>div:nth-child(3){display: none;}
+    .xxk li:hover>div:nth-child(4){display: none;}
+    .xxk li:hover>div:nth-child(5){display: none;}
+    .xxk li > div:nth-child(1) img {
+      width: 186px;
+      height: 150px;
+    }
+    .xxk li > div:nth-child(1) div {
+      background: rgb(45, 47, 54);
+      margin-top: -4px;
+    }
+    .xxk li > div:nth-child(1) div p {
+      margin: 0;
+      color: aliceblue;
+      line-height: 25px;
+      margin-left: 15px;
+      margin-right: 5px;
+    }
+    .xxk li > div:nth-child(1) div p:nth-child(2) {
+      color: rgb(117, 118, 121);
+      font-size: 13px;
+      line-height: 20px;
+      margin-left: 15px;
+      margin-right: 5px;
+    }
+    .xxk li > div:nth-child(1) div p:nth-child(3) {
+      color: rgb(117, 118, 121);
+      font-size: 13px;
+      line-height: 20px;
+      margin-left: 15px;
+      margin-right: 5px;
+    }
+    .xxk li > div:nth-child(1) div p:nth-child(4) {
+      color: rgb(117, 118, 121);
+      font-size: 12px;
+      line-height: 17px;
+      margin-left: 15px;
+      margin-right: 5px;
+    }
+    .xxk li > div:nth-child(2) {
+      width: 186px;
+      height: 248px;
+      position: absolute;
+    }
+    .xxk li > div:nth-child(3) {
+      position: absolute;
+      float: right;
+      top: 32px;
+      left: 214px;
+      width: 30px;
+      background: rgb(223, 187, 121);
+      font-size: 15px;
+      text-indent: 4px;
+    }
+
+    .xxk li > div:nth-child(4) {
+      position: absolute;
+      top: 250px;
+      color: aliceblue;
+      left: 170px;
+      font-size: 12px;
+    }
+    .xxk li > div:nth-child(5) {
+      color: aliceblue;
+      margin-top: 260px;
+      position: absolute;
+      top: 25px;
+      width: 100%;
+    }
+    .xxk li > div:nth-child(5) p {
+      color: rgb(117, 118, 121);
+      font-size: 14px;
+      position: absolute;
+      top: 15px;
+      margin-top: 5px;
+    }
+    .xxk li div img {
+      width: 186px;
+      height: 248px;
+    }
+  </style>
+  <body>
+    <ul class="xxk">
+      <li>
+        <div>
+          <img src="/img/a_100405348_m_601_m5_579_772.jpg" />
+          <div>
+            <p><a href="#">一起深呼吸</a></p>
+            <p>类型:内地/普通话/都市</p>
+            <p>主演:戚薇/杨祐宁/朱珠</p>
+            <p>
+              一支中国援外医疗小分队，为履行职业使命来到南太平洋的一座小岛上，谁知刚落地就碰到百年一遇的天灾，一场与时间赛跑的救援...
+            </p>
+          </div>
+        </div>
+        <div>
+          <img src="/img/a_100405348_m_601_m5_579_772.jpg" />
+        </div>
+        <div>VIP</div>
+        <div>更新至10集</div>
+        <div>
+            <a href="#">一起深呼吸</a><br />
+          <p>戚薇杨佑宁最美逆行者</p>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

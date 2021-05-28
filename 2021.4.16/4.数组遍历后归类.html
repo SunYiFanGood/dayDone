@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<script>
+  //创建Person构造函数
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  //通过Person构造函数构造五个对象
+  Person.prototype.toSting = function () {
+    return "Person[name=" + this.name + ",age=" + this.age + "]";
+  };
+  var per1 = new Person("孙悟空", 18);
+  var per2 = new Person("红孩儿", 8);
+  var per3 = new Person("猪八戒", 28);
+  var per4 = new Person("二郎神", 38);
+  var per5 = new Person("唐僧", 18);
+  //将五个对象存入数组arrP
+  var arrP = [per1, per2, per3, per4, per5];
+  //通过getAdult（）函数找出arrP中年龄大于18的对象
+  function getAdult(arr) {
+    var newArr = []; //构造一个新数组存储找出来的对象
+    for (a = 0; a < arr.length; a++) {
+      //遍历arrP数组
+      var p = arr[a]; //创建变量接收每个对象
+      if (p.age >= 18) {
+        //通过p接收对象，判断每个年龄大于18
+        newArr.push(p); //将年龄大于18的存入newArr数组
+      }
+    }
+    return newArr; //返回newArr数组
+  }
+  var result = getAdult(arrP); //创建变量result接收每个判断下来年龄大于18的对象
+  // console.log(result); //在控制台输出
+  document.write(JSON.stringify(result));
+  result.forEach(function (a, b, c) {
+    console.log(JSON.stringify(a));
+  });
+</script>
+
+<body></body>
+
+</html>

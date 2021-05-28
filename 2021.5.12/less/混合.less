@@ -1,0 +1,11 @@
+.main(@w,@h,@c){//类似js的函数封装，小括号中为类似形参
+  width:@w;
+  height:@h;
+  color: @c;
+}
+#out{
+  .main(100px,200px,red);//调用并传参
+  #inner{
+    .main(50px,100px,green);//调用并传参
+  }
+}

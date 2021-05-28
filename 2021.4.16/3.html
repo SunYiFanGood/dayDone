@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./appleHeader/iconfont.css" />
+  </head>
+  <style>
+      html,body{
+          margin: 0;
+          padding: 0;
+      }
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .header {
+      display: flex;
+      background-color: #000;
+      height: 40px;
+      line-height: 40px;
+    }
+    .icon-caidan,
+    .icon-pingguo,
+    .icon-gouwudai,
+    .icon-search {
+      font-size: 20px;
+      color: #fff;
+    }
+    .header > div {
+      flex-grow: 1;
+    }
+    .header > div:nth-child(2) {
+      text-align: center;
+    }
+    .header > div:nth-child(3) {
+      text-align: right;
+    }
+    .cd {
+      display: none;
+    }
+    /*在窗口768px以上时*/
+    @media screen and (min-width: 768px) {
+      .cd {
+        display:flex;
+        color: #fff;
+        flex-grow: 6;
+        order: 1;
+        text-align: center;
+      }
+      .cd li{
+        flex-grow: 1;
+      }
+      .header > div {
+        flex-grow: 1;
+      }
+      .header > div:nth-child(3){
+          order: 2;
+      }
+      .header > div:nth-child(1){
+          display:none;
+      }
+      .header > div:nth-child(2){
+          text-align: left;
+          padding-left: 10px;
+      }
+      .header > div:nth-child(3){
+          text-align: right;
+          padding-right: 10px;
+      }
+    }
+  </style>
+  <body>
+    <div class="header">
+      <div class="iconfont icon-caidan"></div>
+      <div class="iconfont icon-pingguo"></div>
+      <div class="iconfont icon-gouwudai"></div>
+      <ul class="cd">
+        <li>Mac</li>
+        <li>iPad</li>
+        <li>iPhone</li>
+        <li>Watch</li>
+        <li>Music</li>
+        <li>技术支持</li>
+        <li class="iconfont icon-search"></li>
+      </ul>
+    </div>
+  </body>
+</html>

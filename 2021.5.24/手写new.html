@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    function myNew(o) {
+        // - 创建了一个对象，并把这个对象返回
+        var obj = {};
+        var arr = Array.from(arguments).slice(1);
+        // - 把构造函数的this指向这个创建的对象
+        var re = o.apply(obj, arr);
+        if (typeof re==="object"&&re!==null||typeof re==="function"){
+            return re;
+        }
+        // - 将这个对象的原型链修改，将隐式原型指向构造函数的显式原型
+        obj.__proto__ = o.prototype;
+        return obj;
+    }
+
+    var obj1 = myNew(Person, "zhangSan", 1999);
+    console.log(obj1)
+</script>
+</body>
+</html>

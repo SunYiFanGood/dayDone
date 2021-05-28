@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*body{
+          height: 1000px;
+        }*/
+        #fly {
+            width: 100px;
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            /*margin-left: -50px;*/
+        }
+
+        .atk {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: aqua;
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+<img src="./img/fly.gif" id="fly">
+<script>
+    var oFly = document.getElementById('fly');
+    var toLeft = false;
+    var toTop = false;
+    var toRight = false;
+    var toDown = false;
+
+    //飞机移动
+    document.addEventListener("keydown", function (e) {
+        switch (e.keyCode) {
+            case 37:
+                toLeft = true;
+                break;
+            case 38:
+                toTop = true;
+                break;
+            case 39:
+                toRight = true;
+                break;
+            case 40:
+                toDown = true;
+                break;
+            default:
+                break;
+        }
+    })
+    document.addEventListener("keyup", function (e) {
+        switch (e.keyCode) {
+            case 37:
+                toLeft = false;
+                oFly.style.transform = "rotateX(0deg)" + "rotateY(0deg)";
+                break;
+            case 38:
+                toTop = false;
+                oFly.style.transform = "rotateX(0deg)" + "rotateY(0deg)";
+                break;
+            case 39:
+                toRight = false;
+                oFly.style.transform = "rotateX(0deg)" + "rotateY(0deg)";
+                break;
+            case 40:
+                toDown = false;
+                oFly.style.transform = "rotateX(0deg)" + "rotateY(0deg)";
+                break;
+            default:
+                break;
+        }
+    })
+    var timer;
+    timer = setInterval(function () {
+        var move = {
+            x: oFly.offsetLeft,
+            y: oFly.offsetTop
+        }
+        if (toLeft) {
+            move.x -= 10;
+            oFly.style.transform = "rotateY(49deg)";
+        }
+        if (toTop) {
+            move.y -= 10
+            oFly.style.transform = "rotateX(311deg)";
+        }
+        if (toRight) {
+            move.x += 10;
+            oFly.style.transform = "rotateY(49deg)";
+        }
+        if (toDown) {
+            move.y += 10;
+            oFly.style.transform = "rotateX(325deg)";
+        }
+        /*if (!toLeft&&toTop&&toRight&&toDown){
+          oFly.style.transform="rotateX(0deg)"+"rotateY(0deg)";
+        }*/
+        if (move.x <= 0) {
+            move.x = 0;
+        } else if (move.x >= document.documentElement.clientWidth - oFly.offsetWidth) {
+            move.x = document.documentElement.clientWidth - oFly.offsetWidth;
+        }
+        if (move.y <= 0) {
+            move.y = 0;
+        } else if (move.y >= document.documentElement.clientHeight - oFly.offsetHeight) {
+            move.y = document.documentElement.clientHeight - oFly.offsetHeight;
+        }
+        oFly.style.left = move.x + "px";
+        oFly.style.top = move.y + "px";
+
+
+    }, 30)
+    //飞机移动结束
+    //生成子弹
+    var atk = setInterval(
+        function () {
+            var move = {
+                x: oFly.offsetLeft,
+                y: oFly.offsetTop,
+
+            }
+            var oAtk = document.createElement("div");
+            oAtk.className = "atk";
+            var oBody = document.body;
+            oBody.appendChild(oAtk);
+            oAtk.style.left = (move.x + oFly.offsetWidth / 2 - 5) + "px";
+            oAtk.style.top = move.y + "px";
+
+            var oAtkSpeed = setInterval(
+                function () {
+                    move.y -= 10;
+                    if (move.y <= 0) {
+                        clearInterval(oAtkSpeed);
+                        oAtk.remove();
+                    }
+                    oAtk.style.top = move.y + "px";
+                },20
+            )
+
+
+        }, 1000
+    )
+
+
+</script>
+</body>
+</html>

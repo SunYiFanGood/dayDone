@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var type=prompt("请输入‘已婚’或者‘未婚’");//获取用户婚配状态
+    switch (type){
+        case '已婚':
+            type=true;//如果已婚则赋值true
+            break;
+        case '未婚':
+            type=false;//如果未婚则赋值false
+            break;
+        default:
+            alert("错误，请重新输入");
+            type=prompt("请输入‘已婚’或者‘未婚’");//如果输入的不是这个两个值则让用户重新输入
+
+    }
+    var age=prompt("请输入您的年龄");//获取用户年龄
+    var sex=prompt("请输入您的性别‘男’或者‘女’");获取用户性别
+    switch (sex){
+        case '男':
+            sex=true;//性别为男则赋值true
+            break;
+        case '女':
+            sex=false;//如果为女则返回false
+            break;
+        default:
+            alert("错误，请重新输入");//如果输入的是其他值则告诉用户输入错误并重新弹窗
+            sex=prompt("请输入您的性别‘男’或者‘女’");
+
+    }
+    if (type){//如果已婚则直接弹窗可以购买
+        alert("您有资格购买");
+    }else if(sex&&age>"25"){//如果未婚且为男且年龄大于25则弹窗可以购买
+        alert("您有资格购买");
+    }else if(sex=false&&age>"22"){//如果未婚且为女且年龄大于22则弹窗可以购买
+        alert("您有资格购买");
+    }else{//其他值则不可购买
+        alert("您不配");
+    }
+</script>
+</body>
+</html>

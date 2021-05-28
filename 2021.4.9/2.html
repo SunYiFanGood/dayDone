@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .taiji {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      animation:xuanzhuan 5s ease-in-out infinite;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+    .taiji div {
+      float: left;
+    }
+    .taiji-l {
+      width: 200px;
+      height: 400px;
+      background-color: #000;
+      border-top-left-radius: 200px;
+      border-bottom-left-radius: 200px;
+    }
+    .taiji-r {
+      width: 200px;
+      height: 400px;
+      background-color: #fff;
+      border-top-right-radius: 200px;
+      border-bottom-right-radius: 200px;
+      border: 1px solid rgb(109, 108, 108);
+      box-sizing: border-box;
+    }
+    .yuan-top {
+      width: 200px;
+      height: 200px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 25%;
+    }
+    .yuan-top div {
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+    }
+    .yuan-bot {
+      width: 200px;
+      height: 200px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 25%;
+    }
+    .yuan-bot div {
+      width: 50px;
+      height: 50px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+    }
+    @keyframes xuanzhuan {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <body>
+    <div class="taiji">
+      <div class="taiji-l"></div>
+      <div class="taiji-r"></div>
+      <div class="yuan-top">
+        <div></div>
+      </div>
+      <div class="yuan-bot">
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

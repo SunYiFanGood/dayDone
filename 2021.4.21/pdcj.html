@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="getScore" placeholder="输入分数查询等级"/>
+<button id="sub">提交</button>
+<script>
+    var score = document.getElementById("getScore");//从用户那获得分数
+    /*sub.onclick=function (){//绑定点击提交事件
+      var getScore= +score.value;//定义变量获得转number后的分数
+      if (getScore=100){//判断等于100时分数等级
+        alert("SSS");//弹窗输出等级
+      }else if(getScore>=90){//判断大于等于90时分数等级
+        alert("S");//弹窗输出等级
+      }else if(getScore>=80){//判断大于等于80时分数等级
+        alert("A");//弹窗输出等级
+      }else if(getScore>=70){//判断大于等于70时分数等级
+        alert("B");//弹窗输出等级
+      }else if(getScore>=60){//判断大于等于60时分数等级
+        alert("C");//弹窗输出等级
+      }else{//判断小于60时分数等级
+        alert("D");//弹窗输出等级
+      }
+    }*/
+    sub.onclick = function () {//绑定点击提交事件
+        var getScore = +score.value;//定义变量获得转number后的分数
+        switch (parseInt(getScore / 10)) {//将分数划分为十块，除以10取整
+            case 10://结果为10，也就是分数为100时
+                alert("SSS");
+                break;
+            case 9://结果为9，也就是分数大于90等于时
+                alert("S");
+                break;
+            case 8://结果为8，也就是分数大于等于80时
+                alert("A");
+                break;
+            case 7://结果7，也就是分数大于等于70时
+                alert("B");
+                break;
+            case 6://结果为6，也就是分数大于等于60时
+                alert("C");
+                break;
+            default://结果为其他，也就是分数小于60时
+                alert("D");
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+              //使用for 把1-100的整数以二维的形式储存在数组中
+              [
+                  [0..9],
+                  [11....20],
+                  [21.....30],
+                  ....
+                  [91....100]
+              ]
+
+          */
+    var arr=[];//定义一个空数组
+    for (var i=0;i<10;i++){//在arr中增加10个数组
+        var newArr=[];//每次循环再定义一个数组
+        for (j=0;j<10;j++){//定义内部数组的10个值
+            newArr[j]=i*10+j+1;//通过数学方法产生预期的值
+        }
+        arr[i]=newArr;//每次循环依次将新数组存入arr
+    }
+    console.log(arr);//输出arr
+</script>
+</body>
+</html>

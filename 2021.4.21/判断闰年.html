@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//年份能够被4整除且不能被100整除，或者年份能够被400整除，输出3000年内所有的闰年
+for (var year=0;year<=3000;year++){
+  if (year%4===0&&year%100!==0||year%400===0){
+    console.log(year+"是闰年")
+  }
+}
+
+</script>
+</body>
+</html>

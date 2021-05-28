@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer src="./index.js"></script>
+    <!--    异步延迟后按顺序执行js-->
+    <script async src="./index.js"></script>
+    <!--    //异步，下载完成后立即执行-->
+</head>
+<body>
+<!--//JS引入-->
+<script>
+    //alert("a");//弹出警告框并停止执行下面的代码
+    //document.write("a");//在html中打印出a，后续执行该语句会覆盖
+    //console.log("a");//在控制台中输出a
+    var a = 0, b = true, c = "stu", d, e = {}, f = [], g = null, h = function () {
+    };//声明多个变量并赋值
+    function _type(a, b, c, d, e, f, g, h) {//定义函数，形参接收要检查数据类型的变量
+        console.log(
+            "a的数据类型为" + typeof a,
+            "b的数据类型为" + typeof b,
+            "c的数据类型为" + typeof c,
+            "d的数据类型为" + typeof d,
+            "e的数据类型为" + typeof e,
+            "f的数据类型为" + typeof f,
+            "g的数据类型为" + typeof g,
+            "h的数据类型为" + typeof h
+        )//通过typeof方法在控制台输出该变量的数据类型，typeof方法不能准确检测出除number string boolean undefined以外的数据类型
+        document.write(
+            "a的数据类型为" + typeof a+"<br/>",
+            "b的数据类型为" + typeof b+"<br/>",
+            "c的数据类型为" + typeof c+"<br/>",
+            "d的数据类型为" + typeof d+"<br/>",
+            "e的数据类型为" + typeof e+"<br/>",
+            "f的数据类型为" + typeof f+"<br/>",
+            "g的数据类型为" + typeof g+"<br/>",
+            "h的数据类型为" + typeof h+"<br/>"
+        )//页面打印出结果
+    }
+
+    _type(a, b, c, d, e, f, g, h);//将变量通过形参传递进函数并执行该方法
+
+
+    //定义一个函数将10进制转换为10以下进制
+
+    {
+        var _input = null, _baseSystem = null;//定义空变量
+        function _get_baseSystem() {
+            _baseSystem = prompt("请输入要转换的进制(小于10)：");//从弹窗中获取用户输入的值作为要转化的进制
+            if (isNaN(Number(_input)) && _input < 10) {//判断用户输入的值是否为数值且小于10
+                alert("输入的不是数字或大于等于10，请重新输入")//如果判断为false则重新弹窗让用户输入
+                var _baseSystem = prompt("请输入要转换的进制(小于10)：");
+            } else {
+                return _baseSystem;//如果为true则返回值
+            }
+        }
+
+        _baseSystem = _get_baseSystem();//将返回值赋值给变量，作为要转换的进制
+
+
+        function _getNumber() {
+            _input = prompt("请输入一个十进制数字：");//从弹窗中获取用户输入的值
+            if (isNaN(Number(_input))) {//判断输入的值是否为数字
+                alert("输入的不是数字请重新输入")//不是数字则让用户重新弹窗输入
+                var _input = prompt("请输入一个十进制数字：");
+            } else {
+                return _input;//如果是数字则返回值
+            }
+        }
+
+        _input = _getNumber();//将返回值赋值给变量，做为要转换的数值
+
+        // console.log(_input);
+        function _numberTo(_input, _baseSystem) {//定义一个函数进行进制转换
+            var resArry = [];//定义一个数组将运算的余数存起来
+
+            for (; _input > 0;) {//如果_input取的整数大于0则继续执行循坏
+                resArry.push(_input % _baseSystem);//除_baseSystem取余
+                _input = parseInt(_input / _baseSystem)//除_baseSystem取整
+            }
+            return resArry.reverse();//倒序返回数组，该数组的值倒序排列就是转换后的进制的值
+
+        }
+    }
+    _numberTo(_input, _baseSystem);//将用户传递进的的参数通过形参传递进函数并运行
+    console.log(_numberTo(_input, _baseSystem));//在控制台输出数组
+    alert(_input + "该十进制数字转化为" + _baseSystem + "进制为" + _numberTo(_input, _baseSystem));//弹窗输出数组，该数组的值就是进制转化后的值
+</script>
+<!--//JS外部引入-->
+<script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [3, 1, 5, 4, 7, 6, 9, 8, 9, 6, 5];
+
+    function quickSort(arr) {
+        if (arr.length <= 1) {//当数组长度为一的时候停止执行函数，并返回结果
+            return arr;
+        }
+        var centerArr = arr.pop();//选数组最后一个中间量
+        var leftArr = [];//定义左边数组
+        var rightArr = [];//定义右边数组
+        arr.map(
+            function (value, index) {//遍历数组
+                if (value >= centerArr) {//大于大于中间量的放右边数组
+                    rightArr.push(value);
+                } else {
+                    leftArr.push(value);//否则放左边数组
+                }
+            });
+        var newArr = quickSort(leftArr).concat(centerArr, quickSort(rightArr));//合并数组并递归，对左边和右边的数组重新操作
+        return newArr;//最后返回最终合并的值
+    }
+
+    console.log(quickSort(arr))
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=["孙悟空","猪八戒","沙和尚","唐僧","白龙马","如来"];
+    arr.forEach(//遍历数组
+        function (value,index,arr){//数组的值，索引，所属函数
+            console.log(value,index,arr);
+        }
+    );
+    var arr2=arr.slice(2,5);//截取arr[2] arr[3] arr[4]三个，不影响原函数
+    console.log(arr2)
+    var arr3=arr.splice(2,2,"白骨精","蜘蛛精");//切割 从第二个开始（包含第二个）两个arr的值并替换
+    console.log(arr3);
+    console.log(arr);
+</script>
+
+</body>
+</html>

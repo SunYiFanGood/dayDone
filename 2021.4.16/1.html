@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+        display: flex;
+        border: 1px solid #ccc;
+        width: 700px;
+        height: 500px;
+        justify-content: space-between;
+        align-items:center;
+        flex-wrap: wrap;
+    }
+    .box>div{
+        width: 200px;
+        height: 200px;
+        background-image: radial-gradient(#fff,#ccc);
+        padding: 10px;
+        border-radius: 8%;
+    }
+   
+    .box>div>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: radial-gradient(rgb(241, 25, 25),black);
+    }
+    .box-1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-2{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .box-3{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+    .box-3 div:nth-child(1){
+        align-self:flex-start;
+    }
+    .box-3 div:nth-child(3){
+        align-self:flex-end;
+    }
+    .box-4{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .box-4 div{
+        margin: 20px;
+    }
+    .box-5{
+        position: relative;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .box-5 div{
+        margin: 20px;
+    }
+    .box-5 div:nth-child(5){
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -25px;
+        margin-top:-25px ;
+    }
+    .box-6{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .box-6 div{
+        margin: 0 20px;
+    }
+  </style>
+  <body>
+    <div class="box">
+        <div class="box-1">
+            <div></div>
+        </div>
+        <div class="box-2">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box-3">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box-4">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box-5">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box-6">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </body>
+</html>

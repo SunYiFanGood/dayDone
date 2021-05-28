@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+<div id="box"></div>
+<script>
+    var oBox=document.querySelector("#box");
+    function fn(e){
+        console.log("aa")
+    }
+    oBox.onmousemove=throttle(fn,200);
+    function throttle(fn,time){
+        var nowTime=0
+        //看门狗
+        return function(){
+            var lastTime=Date.now();//声明变量保存当前时间戳
+            if (lastTime-nowTime<time){//如果两次时间差小于传入的time，则直接退出函数
+                return;
+            }
+            nowTime=lastTime;
+            fn.call(this,arguments[0]);//修改fn的this指向，当前函数的this指向oBox，传入当前调用函数的事件对象给fn使用
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Function.prototype.myApply=function(value){//给function的构造函数封装一个myApply方法
+        if (value===null||value===undefined){//判断value的值，为null或undefined则给value赋值window
+            value=window;
+        }
+        if (typeof value !="object"&&typeof value !="function"){//如果value的值为基本类型值，则给value赋值该类型值对应的包装对象
+            value=Object(value);
+        }
+        var arr=arguments[1];//获取第二个及以后的实参保存为数组
+        var key=Date.now().toString(36);//获取一个不会重复的方法名
+        value[key]=this;//给value添加一个方法
+        eval("value[key]("+arr.toString()+")");//通过eval调用字符串方法
+        delete value[key];
+        //console.log("value[key]("+arr.toString()+")")
+    }
+    function fn(a,b){
+        console.log(this,a+b)
+    };
+    fn.myApply("a",[1,5]);
+</script>
+</body>
+</html>

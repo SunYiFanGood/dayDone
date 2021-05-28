@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+    .cd{
+        width: 300px;
+    }
+    .cd li {
+      width: 300px;
+      text-align: center;
+      color: #fff;
+      /* border: 1px solid #000; */
+    }
+    .cd li:nth-child(1) {
+      background-color: #dbe5f3;
+    }
+    .cd li:nth-child(2) {
+      background-color: #f3e0e8;
+    }
+    .cd li:nth-child(3) {
+      background-color: #cf93c1;
+    }
+    .cd li:nth-child(4) {
+      background-color: #becb86;
+    }
+    .cd li:nth-child(5) {
+      background-color: #ad9bad;
+    }
+    .cd li::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .cd li:hover div {
+      height: 180px;
+    }
+    .cd li:hover div img {
+      opacity: 1;
+      height: auto;
+      transition: all ease-in-out 0.8s;
+      transition-delay: 1s;
+    }
+    .cd li h4 {
+      margin: 0px;
+      height: 40px;
+      line-height: 40px;
+      text-align: left;
+      text-indent: 1em;
+    }
+    .cd li div {
+      height: 0;
+      font-size: 0;
+      transition: all linear 0.7s;
+      background-color: #fff;
+    }
+    .cd li div img {
+      opacity: 0;
+      height: 0;
+      width: 80%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <body>
+    <ul class="cd">
+      <li>
+        <h4>温柔贤惠</h4>
+        <div><img src="./5710984334b7e.jpg" /></div>
+      </li>
+      <li>
+        <h4>甜美时尚</h4>
+        <div><img src="./5ba44d4304441.jpg" /></div>
+      </li>
+      <li>
+        <h4>独立稳重</h4>
+        <div><img src="./5cb450ae20929.jpg" /></div>
+      </li>
+      <li>
+        <h4>妩媚性感</h4>
+        <div><img src="./56af0da3ae601.jpg" /></div>
+      </li>
+      <li>
+        <h4>女汉子</h4>
+        <div><img src="./F8F2-fxipenp2527999.jpg" /></div>
+      </li>
+    </ul>
+  </body>
+</html>

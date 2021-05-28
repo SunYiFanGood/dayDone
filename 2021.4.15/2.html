@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+        
+    }
+    Person.prototype.toSting=function(){
+        return"Person[name="+this.name+",age="+this.age+"]"
+    }
+    var per1=new Person("孙悟空",18);
+    var per2=new Person("红孩儿",8);
+    var per3=new Person("猪八戒",28);
+    var per4=new Person("二郎神",38);
+    var per5=new Person("唐僧",18);
+    var arrp=[per1,per2,per3,per4,per5];
+    function getAdult(arr){
+        var newarr=[];
+        for(a=0;a<arrp.length;a++){
+            //arrp[a]
+            if(arrp[a].age==18){
+                newarr.push=[arrp[a]];
+            }
+        }
+        console.log(newarr);
+    }
+</script>
+<body>
+    
+</body>
+</html>

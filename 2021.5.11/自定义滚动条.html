@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 清除系统滚动条 */
+        html,
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* #con {} */
+
+        .bar {
+            width: 40px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: lavenderblush;
+        }
+
+        .box {
+            width: 40px;
+            position: absolute;
+            left: 0;
+            top: 0;
+             /*height: 60px;*/
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+<div id="con"></div>
+<div class="bar">
+    <div class="box"></div>
+</div>
+<script>
+    var oCon=document.getElementById("con");
+    var oBox=document.querySelector(".box");
+    var oBar=document.querySelector(".bar");
+    for (var i=0;i<900;i++){
+        oCon.innerHTML+=i+"</br>";//生成文本撑开html
+    }
+
+    var scale=oCon.offsetHeight/oBar.offsetHeight;//获取滑槽与文档的高度比
+    var oBoxH=oBar.offsetHeight/scale;//计算滑块相对于窗口与文档高度比例的高度
+    oBox.style.height=oBoxH+"px";//给滑块的高度赋值
+
+    //滑块拖动事件
+    oBox.onmousedown=function (e){//当鼠标在OBox上按下时
+        e.preventDefault();//阻止系统默认事件
+        var t=e.offsetY;//获取鼠标距离OBox上边框的位置
+        document.onmousemove=function(e){
+            var topMove=e.clientY-t;//使用鼠标到窗口的距离减去鼠标距离当前目标元素的上距离得到移动的距离
+            if (topMove<=0){//判断临界值，小于零时等于零
+                topMove=0;
+            }else if (topMove>=oBar.clientHeight-oBox.offsetHeight){
+                topMove=oBar.clientHeight-oBox.offsetHeight;//大于滑槽高度减去滑块高度时，等于滑槽高度减去滑块高度
+            }
+            oBox.style.top=topMove+"px";//将移动的距离赋值给oBox的top
+
+            //当滑块滑动时oCon的滚动事件
+            var oConTop=topMove * scale;
+            oCon.style.transform="translateY("+-oConTop+"px)"
+
+        }
+        document.onmouseup=function (){//当鼠标弹起的时候，清除按下事件和自己
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    }
+
+    //滑块滚轮事件
+    document.onmousewheel=wheel;//ie和谷歌的滚轮绑定事件
+    document.addEventListener("DOMMouseScroll",wheel,false);//火狐滚轮绑定事件
+    function wheel(e){//封装函数
+        var oTop=oBox.offsetTop;//获取滑块当前位置
+        if (e.wheelDelta){//当浏览器为ie或谷歌时
+            if (e.wheelDelta<0){
+                oTop+=15;//下滚时加15
+            }else{
+                oTop-=15;//上滚时减15
+            }
+        }else{
+            if (e.detail<0){
+                oTop-=15;//上滚时减15
+            }else{
+                oTop+=15;//下滚时加15
+            }
+        }
+        if (oTop <= 0) {//判断临界值
+            oTop = 0;
+        } else if (oTop >= oBar.clientHeight - oBox.offsetHeight) {
+            oTop = oBar.clientHeight - oBox.offsetHeight
+        }
+        oBox.style.top=oTop+"px";//滑块位置赋值
+        var oConTop=oTop * scale;
+        oCon.style.transform="translateY("+-oConTop+"px)";//改变文档位置赋值
+    }
+
+</script>
+</body>
+</html>

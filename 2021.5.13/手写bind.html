@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Function.prototype.myBind=function(value){
+        var _this=this;//定义一个变量保存this，此时this指向fn
+        var arr=Array.from(arguments).slice(1);//获取一个保存传入实参第二个及后面的实参的数组
+        return function (){
+            _this.apply(value,arr);//用fn调用apply方法，传入arr，此时this指向value
+        }
+    }
+    function fn(a,b){
+        console.log(this,a+b)
+    }
+    var re=fn.myBind("a",1,2)
+    re();
+</script>
+</body>
+</html>

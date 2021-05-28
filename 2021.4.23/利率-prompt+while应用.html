@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var price=100000;//本金
+  var sum=0;//定义变量保存执行次数，也就是需要的年份
+  var _finally=2*price;//定义变量保存最终price要达到的结果
+  var lil=prompt("请输入利率");//弹窗获取利率
+  while (price<=_finally){//定义循环
+      sum++;//每次执行年份+1
+      price=lil*price;//累加本金和利息下一年继续
+  }
+  console.log(sum);//输出需要的年份
+</script>
+</body>
+</html>

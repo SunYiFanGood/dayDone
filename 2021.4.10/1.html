@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: #525254;
+    }
+    div {
+        margin: 0 auto;
+        position: relative;
+      width: 400px;
+      height: 240px;
+      text-align: center;
+      font-size: 0px;
+      background-image: radial-gradient(
+        transparent 0px,
+        transparent 5px,
+        white 0px,
+        white 5px
+      );
+      background-size: 20px 20px;
+      padding: 10px;
+      background-position: -10px -10px;
+      box-sizing: border-box;
+    }
+    div img {
+      width: 100%;
+      height: 100%;
+    }
+    div::after{
+        content: '8分';
+        font-size: 40px;
+        color:#525254 ;
+        position: absolute;
+        right: 30px;
+        top: 10px;
+        font-weight: bold;
+        letter-spacing: 10px;
+    }
+  </style>
+
+  <body>
+    <div>
+      <img src="./youpiao.jpg" />
+    </div>
+  </body>
+</html>

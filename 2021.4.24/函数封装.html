@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.求1 - n之间所有数的和
+    function add(n) {
+        var sum = 0;
+        for (var i = 1; i <= n; i++) {
+            sum += i;
+
+        }
+        return sum;
+    }
+    add(100);
+    console.log(add(100));
+    // 求n - m之间所有数的和
+    function add2(n,m) {
+        var sum = 0;
+        for (var i = n; i <= m; i++) {
+            sum += i;
+
+        }
+        return sum;
+    }
+    add2(100,200);
+    console.log(add2(100,200));
+
+
+
+    // 圆的面积
+    function S(r) {
+        var s=Math.PI*r*r;
+        return s;
+    }
+    S(10);
+    console.log(S(10));
+
+    // 求2个数中的最大值
+    function compare(a,b){
+        var re=a-b;
+        if (re>0){
+            return a;
+        }else if(re<0){
+            return b;
+        }else if(re===0){
+            return a,b;
+        }else {
+            console.log("输入错误")
+        }
+    }
+    compare(20,50);
+    console.log(compare(20,50))
+
+    // 求3个数中的最大值
+    function compare2(a,b,c){
+        var re=a-b;
+        if (re>0){
+            if (a-c>0){
+                return a;
+            }else if (a-c<0){
+                return c;
+            }else if(a-c===0){
+                return a,c;
+            }else {
+                console.log("输入错误")
+            }
+        }else if(re<0){
+            if (b-c>0){
+                return b;
+            }else if (b-c<0){
+                return c;
+            }else if(b-c===0){
+                return b,c;
+            }else {
+                console.log("输入错误")
+            }
+        }else if(re===0){
+            if (b-c>0){
+                return b;
+            }else if (b-c<0){
+                return c;
+            }else if(b-c===0){
+                return b,c;
+            }else {
+                console.log("输入错误")
+            }
+        }else {
+            console.log("输入错误")
+        }
+    }
+    compare2(20,50,220);
+    console.log(compare2(20,50,220))
+    // 判断一个数是否是素数(又叫质数， 只能被1和自身整数的数)
+    function primeNumber(n){
+        var sum=0;
+        for(var i=0;i<=n;i++){
+            if (n%i===0){
+                sum+=i;
+            }
+        }
+        if (sum===1+n){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    primeNumber(11);
+    console.log(primeNumber(12));
+    // 求任意个数的最大值
+    function compare3(){
+        for (var i=0;i<arguments.length;i++){
+            //console.log('i='+arguments[i]);
+            var max=0;
+            for (var j=1;j<arguments.length;j++){
+                //console.log('---j='+arguments[j]);
+                //console.log('cha='+(arguments[i]-arguments[j]));
+                if (arguments[i]-arguments[j]>0){
+
+                    if (arguments[i]>=max){
+                        max=arguments[i];
+                    }
+                }else{
+                    if (arguments[j]>=max){
+                        max=arguments[j];
+                    }
+                }
+                //console.log('--------'+max);
+
+            }
+            return max;
+        }
+    }
+    compare3(20,50,220,55,-7777,22,44,7777,666);
+    console.log('max='+compare3(20,50,220,55,-7777,22,44,7777,666))
+    // 求任意个数的和
+    function compare4(){
+        var sum=0;
+        for (var i=0;i<arguments.length;i++){
+            //console.log('i='+arguments[i]);
+
+            sum+=arguments[i];
+
+        }
+        return sum;
+    }
+    compare4(20,50,220,55,-333,22,44,7777,666);
+    console.log('sum='+compare4(20,50,220,55,-333,22,44,7777,666))
+</script>
+</body>
+</html>

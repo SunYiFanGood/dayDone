@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="box">
+    按钮
+</button>
+<script>
+    let box=document.getElementById("box");
+
+    box.onclick=()=>{
+        let promise=new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                reject("bbb");
+                resolve("aaa");
+                console.log(promise)
+            },1000)
+
+        })
+        promise.then((value)=>{
+            console.log("成功了执行我",value)
+            console.log(promise)
+            return new Promise((resolve, reject)=>{
+                resolve("aa");
+            })
+        },(value)=>{
+            console.log("失败了执行我",value)
+            console.log(promise)
+            return new Promise((resolve, reject)=>{
+                reject("bb");
+            })
+        })
+        .then((value)=>{
+            console.log("成功了执行我",value)
+            console.log(promise)
+            return new Promise((resolve, reject)=>{
+                resolve("aa");
+            })
+        },(value)=>{
+            console.log("失败了执行我",value)
+            console.log(promise)
+            return new Promise((resolve, reject)=>{
+                reject("bb");
+            })
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #fly{
+            width: 100px;
+            position:fixed;
+            bottom: 50px;
+            left: 50%;
+            /*margin-left: -50px;*/
+        }
+    </style>
+</head>
+<body>
+<img src="./img/fly.gif" id="fly">
+<script>
+var oFly=document.getElementById('fly');
+document.addEventListener("keydown",function(e){
+    var move={
+        x:oFly.offsetLeft,
+        y:oFly.offsetTop
+    }
+    //console.log(e.keyCode)
+    switch (e.keyCode){
+        case 37:
+            move.x-=10;
+            break;
+        case 38:
+            move.y-=10;
+            break;
+        case 39:
+            move.x+=10;
+            break;
+        case 40:
+            move.y+=10;
+            break;
+        default:
+            break;
+    }
+    if (move.x<=0){
+        move.x=0;
+    }else if(move.x>=document.documentElement.clientWidth-oFly.offsetWidth){
+        move.x=document.documentElement.clientWidth-oFly.offsetWidth;
+    }
+    if (move.y<=0){
+        move.y=0;
+    }else if(move.y>=document.documentElement.clientHeight-oFly.offsetHeight){
+        move.y=document.documentElement.clientHeight-oFly.offsetHeight;
+    }
+    oFly.style.left=move.x+"px";
+    oFly.style.top=move.y+"px";
+})
+/*document.onkeydown=function(e){
+    var move={
+        x:oFly.offsetLeft,
+        y:oFly.offsetTop
+    }
+    console.log(e.keyCode)
+    switch (e.keyCode){
+        case 37:
+            move.x-=10;
+            break;
+        case 38:
+            move.y-=10;
+            break;
+        case 39:
+            move.x+=10;
+            break;
+        case 40:
+            move.y+=10;
+            break;
+        default:
+            break;
+    }
+    if (move.x<=0){
+        move.x=0;
+    }else if(move.x>=document.documentElement.clientWidth-oFly.offsetWidth){
+        move.x=document.documentElement.clientWidth-oFly.offsetWidth;
+    }
+    if (move.y<=0){
+        move.y=0;
+    }else if(move.y>=document.documentElement.clientHeight-oFly.offsetHeight){
+        move.y=document.documentElement.clientHeight-oFly.offsetHeight;
+    }
+    oFly.style.left=move.x+"px";
+    oFly.style.top=move.y+"px";
+}*/
+</script>
+</body>
+</html>

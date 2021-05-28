@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul,li{
+        list-style: none;
+        margin: 0;
+        padding:0;
+        
+
+    }
+    .xxk{
+        width: 150px;
+        margin: 0 auto;
+    }
+    .xxk li{
+        height:30px;
+        line-height: 30px;
+        /* border: 1px solid #454545; */
+        text-align: center;
+        /* background-color: #ADD7F0; */
+        color: aliceblue;
+        margin: 10px;
+        
+
+    }
+    /* .xxk li a{
+        margin-left: 20px;
+        color: aliceblue;
+        text-decoration: none;
+    } */
+    /* .xxk li::before{
+        content: 'x';
+    } */
+    /* .xxk li:target{
+        background-color: #2489C5;
+    } */
+    /* .xxk li:target::before{
+        content: '√';
+    } */
+    /* .xxk label input::before{
+        content: 'x';
+    } */
+    
+    .xxk label li input:before {
+        content: '×';
+        color: aliceblue;
+        font-size: 20px;
+        font-weight: bolder;
+        visibility: visible;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #ADD7F0;
+        margin-left: -20px;
+        padding-left: 10px;
+        height: 30px;
+        line-height: 30px;
+        width: 120px;
+    }
+
+    .xxk label li input:checked:before{
+        content: '√';
+        color: aliceblue;
+        font-size: 20px;
+        font-weight: bolder;
+        visibility: visible;
+        vertical-align: top;
+        display: inline-block;
+        margin-left: -20px;
+        padding-left: 10px;
+        height: 30px;
+        line-height: 30px;
+        width: 120px;
+        background-color: #2489C5;
+    }
+    .xxk label input{
+       visibility: hidden;
+       vertical-align:top;
+    }
+    
+</style>
+<body>
+    <!-- <ul class="xxk">
+        <li id="l1"><a href="#l1">贤淑端庄型</a></li>
+        <li id="l2"><a href="#l2">温良贤惠型</a></li>
+        <li id="l3"><a href="#l3">乖巧玲珑型</a></li>
+        <li id="l4"><a href="#l4">高贵不群型</a></li>
+        <li id="l5"><a href="#l5">端庄严厉型</a></li>
+        <li id="l6"><a href="#l6">大气无畏型</a></li>
+        <li id="l7"><a href="#l7">洁雅靓丽型</a></li>
+        <li id="l8"><a href="#l8">高雅风尚型</a></li>
+        <li id="l9"><a href="#l9">哀婉可人型</a></li>
+        <li id="l10"><a href="#l10">性格放浪型</a></li>
+    </ul> -->
+    <ul class="xxk">
+        <label for="l1"><li><input type="checkbox" value="" id="l1">贤淑端庄型</li></label>
+        <label for="l2"><li><input type="checkbox" value="" id="l2">温良贤惠型</li></label>
+        <label for="l3"><li><input type="checkbox" value="" id="l3">乖巧玲珑型</li></label>
+        <label for="l4"><li><input type="checkbox" value="" id="l4">高贵不群型</li></label>
+        <label for="l5"><li><input type="checkbox" value="" id="l5">端庄严厉型</li></label>
+        <label for="l6"><li><input type="checkbox" value="" id="l6">大气无畏型</li></label>
+        <label for="l7"><li><input type="checkbox" value="" id="l7">洁雅靓丽型</li></label>
+        <label for="l8"><li><input type="checkbox" value="" id="l8">高雅风尚型</li></label>
+        <label for="l9"><li><input type="checkbox" value="" id="l9">哀婉可人型</li></label>
+        <label for="l10"><li><input type="checkbox" value="" id="l10">性格放浪型</li></label>
+    </ul>
+</body>
+
+</html>

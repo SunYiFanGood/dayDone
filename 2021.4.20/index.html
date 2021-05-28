@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body id="lig">
+<div>
+    <button type="button" id="light">关灯</button>
+    <div id="test">
+        宽度:<input type="text" id="getWidth" placeholder="请输入宽" value="0"><!--//定义输入框让用户输入宽-->
+        <button type="button" id="addWidth">+100</button><!--//定义按钮，点击宽+100--><br>
+        高度:<input type="text" id="getHeight" placeholder="请输入高" value="0"><!--//定义输入框让用户输入高-->
+        <button type="button" id="addHeight">+100</button><!--//定义按钮，点击高+100--><br>
+        <button type="button" id="sub">生成</button><!--//定义按钮，点击更改下面矩形的宽高并计算面积--><br>
+        <input type="text" id="getColor" placeholder="请输入颜色值例如#111111"><!--//定义输入框让用户输入颜色值（16进制或者颜色关键词）-->
+        <button type="button" id="col">变色</button><!--//定义按钮，点击更改下面矩形颜色--><br>
+        <div id="square" style="background-color: aquamarine;text-align: center;width: 100px;height: 100px;"></div><!--//定义一个初始div用来表现用户输入的属性-->
+    </div>
+
+</div>
+<script>
+    //实现一个从用户那获取长和宽并在html中画出该图形并求面积，另外提供一个按钮点击换色
+    {
+        var _width = document.getElementById("getWidth");//获得用户输入的宽
+        var _height = document.getElementById("getHeight");//获得用户输入的高
+        var _col = document.getElementById("getColor");//获得用户输入的颜色值
+        sub.onclick = function () {//给提交按钮绑定事件
+            var wid = _width.value;//获得用户输入的宽具体值
+            var hei = _height.value;//获得用户输入的高具体值
+            var _square = document.getElementById("square");//定义变量通过ID绑定矩形
+            _square.style.width = wid + "px";//通过变量修改矩形宽度样式
+            _square.style.height = hei + "px";//通过变量修改矩形高度样式
+            _square.innerHTML = '面积为：' + wid * hei;//在矩形中打印出面积
+        };
+        col.onclick = function () {//给变色按钮绑定事件
+            var cCol = _col.value;//获取用户输入的颜色值
+            var _square = document.getElementById("square");//定义变量通过ID绑定矩形
+            _square.style.backgroundColor = cCol;//通过变量修改矩形颜色样式
+        }
+        addWidth.onclick = function () {//给+100宽度按钮绑定事件
+            _width.value=Number(_width.value)+100;//点击一次+100宽度
+            // console.log(_width.value);
+            return _width.value;//返回宽度值
+        }
+        addHeight.onclick = function () {//给变色按钮绑定事件
+            _height.value=Number(_height.value)+100;//点击一次+100高度
+            // console.log(_height.value);
+            return _height.value;//返回高度值
+        }
+        var flag=true;
+        light.onclick=function (){
+            var ligh=document.getElementById("light")
+            var _body=document.getElementById("lig");
+            if (flag){
+                _body.style.backgroundColor= "rgb(0, 0 ,0)";
+                ligh.innerHTML="开灯";
+                flag=false;
+
+            }else{
+                _body.style.backgroundColor= "rgb(255, 255, 255)";
+                ligh.innerHTML="关灯";
+                flag=true;
+            }
+        }
+
+    }
+</script>
+
+</body>
+</html>

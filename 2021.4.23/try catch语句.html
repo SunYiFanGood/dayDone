@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  //异常处理语句，捕获错误
+  /*var a=5;
+  try {
+    a=a*b;//要纠错的语句
+  }catch (e){
+    console.log(e)//错误时将错误信息打印在控制台
+  }finally {
+    console.log("这是一个纠错语句");//无论是否发生错误都运行，可以不写
+  }*/
+  //抛出错误
+  var a=null;
+  if (a===null){
+      throw new SyntaxError('a不能为null（这是一个自定义报错信息）');//满足条件则报错
+  }
+</script>
+</body>
+</html>

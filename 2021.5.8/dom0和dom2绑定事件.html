@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="out">
+    out
+    <div class="inner">
+        inner
+        <div class="con">con</div>
+    </div>
+</div>
+<script>
+    var oOut=document.getElementsByClassName("out");
+    var oInner=document.getElementsByClassName("inner");
+    var oCon=document.getElementsByClassName("con");
+    oOut[0].addEventListener("click",function (){
+        console.log("out");
+    },true);
+    oInner[0].addEventListener("click",function (){
+        console.log("inner");
+    },false);
+    oCon[0].addEventListener("click",function (){
+        console.log("con");
+    },false);
+    window.addEventListener("DOMContentLoaded",function (){
+        console.log("j")
+    })
+</script>
+</body>
+</html>

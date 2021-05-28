@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<button id="btn">点击</button>
+<ul class="box">
+  <li>1 <a href="###">XX</a></li>
+  <li>2 <a href="###">XX</a></li>
+  <li>3 <a href="###">XX</a></li>
+  <li>4 <a href="###">XX</a></li>
+</ul>
+<script>
+  var oBtn = document.getElementById('btn');
+  var oBox = document.querySelector('.box');
+  //var oLis = document.querySelectorAll('.box li');
+  var oLis = oBox.getElementsByTagName('li');//获取动态的节点对象
+  var oDele = document.querySelectorAll('.box li a');
+
+  //封装一个在元素内部的最上边插入beforeChild
+  /*function beforeChild(newValue) {//定义形参接收要加的标签名
+    var newChild=document.createElement(newValue);//创建节点
+    var newArr=[newChild];//定义一个初始含增加标签的数组
+    oLis.forEach(
+            function (value,index){
+              newArr.push(value);//遍历li数组将原有的节点依次添加到新数组后面
+            }
+    );
+    newArr.forEach(
+            function (value,index){
+              oBox.appendChild(value);//遍历新数组，将所有节点加到oLis上覆盖
+            }
+    )
+  }
+
+  oBtn.onclick=function (){//点击时调用
+    beforeChild("li");
+  };*/
+  //封装一个在兄弟元素后边插入一个元素的方法 insertAfter
+  function insertAfter(newValue,oldValue) {
+    var oLisIndex;//定义变量保存旧元素下标
+    for (var key in oLis){
+      if (oldValue==oLis[key]){
+        oLisIndex=key;//遍历获取旧元素下标并保存
+      }
+    }
+    /*oLis.forEach(
+            function (value,index){
+              if (oldValue==value){
+                oLisIndex=index;//遍历获取旧元素下标并保存
+              }
+            }
+    )*/
+    console.log(oLisIndex)
+    oBox.insertBefore(newValue,oLis[+oLisIndex+1]);//在旧下标的后一位节点的前面加新节点，达到在兄弟元素后边插入一个元素的效果
+  }
+  oBtn.onclick=function (){//点击时调用
+    var  newValue=document.createElement("li");
+    insertAfter(newValue,oLis[2]);
+  };
+
+</script>
+</body>
+
+</html>

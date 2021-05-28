@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj={
+        name:'syf',
+        age:18,
+        title:'cxy'
+    }
+
+    //遍历
+    for (var name in obj){
+        console.log(name+'='+obj[name]);
+    }
+    //浅拷贝
+    var obj2={};
+    for (var name in obj){
+        obj2[name]=obj[name];
+    }
+    console.log(obj2)
+</script>
+</body>
+</html>

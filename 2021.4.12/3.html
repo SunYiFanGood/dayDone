@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    html,
+    body,
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .cd {
+      height: 50px;
+      line-height: 50px;
+      position: relative;
+      background-color: rgb(48, 47, 47);
+    }
+    .cd > li {
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      color: ivory;
+    }
+    .cd > li:hover .cd-2 > li:nth-child(odd) {
+      right: 0px;
+      visibility: visible;
+      opacity: 1;
+    }
+    .cd > li:hover .cd-2 > li:nth-child(even) {
+      left: 0px;
+      visibility: visible;
+      opacity: 1;
+    }
+    .cd > li h4 {
+      margin: 0;
+      padding: 0;
+      width: 100px;
+      height: 50px;
+    }
+    .cd > li:hover h4 {
+      color: rgb(108, 202, 14);
+    }
+    .cd-2 {
+      position: absolute;
+      width: 100px;
+      overflow: hidden;
+    }
+    .cd-2 > li {
+      background-color: rgb(65, 64, 64);
+      margin: 1px;
+      visibility: hidden;
+      transition: all ease-in-out 1s;
+      border-radius: 5px;
+    }
+    .cd-2 > li:nth-child(odd) {
+      position: relative;
+      right: -100px;
+      opacity: 0;
+    }
+    .cd-2 > li:nth-child(even) {
+      position: relative;
+      left: -100px;
+      opacity: 0;
+    }
+  </style>
+  <body>
+    <ul class="cd">
+      <li>
+        <h4>欧美</h4>
+        <ul class="cd-2">
+          <li>逻辑推理</li>
+          <li>动作</li>
+          <li>惊悚</li>
+        </ul>
+      </li>
+      <li>
+        <h4>日韩</h4>
+        <ul class="cd-2">
+          <li>偶像剧</li>
+          <li>爱青春</li>
+          <li>动漫</li>
+        </ul>
+      </li>
+      <li>
+        <h4>国产</h4>
+        <ul class="cd-2">
+          <li>古装</li>
+          <li>都市</li>
+          <li>搞笑</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="Logout">注销登录</button>
+<script>
+    var getUserName=prompt("请输入账号");
+    var getPW=prompt("请输入密码");
+    var Logout=document.getElementById("Logout")//获取用户输入的账号密码以及按钮绑定
+    function logIn(){//封装一个验证账号密码的函数
+        while (getUserName !=="syf"&& getPW!=="888888"){//判断用户输入的账号密码是否为指定值
+            alert("账号或密码错误，请重新输入！");//表达式成立时弹窗告诉用户输入错误
+            getUserName=prompt("请输入账号");//重新获得用户账号
+            getPW=prompt("请输入密码");//重新获得用户密码
+        }
+        alert("登录成功");//退出循环时表示验证成功，弹窗告诉用户登录成功
+    }
+    logIn();//弹窗执行验证函数
+    Logout.onclick=function (){//绑定按钮
+        var re=confirm("是否退出登录？");//获取用户点击的是确定还是取消
+        if (re){//点确定时执行下面语句
+            alert("退出账号成功");//高数用户注销登录成功
+            logIn();//重新执行验证函数
+        }
+
+    }
+</script>
+</body>
+</html>

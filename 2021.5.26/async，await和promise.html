@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="box"></div>
+<script>
+  /*let btn=document.getElementById("btn")
+  let box=document.getElementById("box")
+  function getData(){
+      return new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+              resolve([{name:"syf",age:18}]);
+          },1500)
+      })
+  }
+  btn.onclick=async function (){
+      let data=await getData();
+      let str=`<h1>${data[0].name}</h1><h3>${data[0].age}</h3>`
+      box.innerHTML=str;
+  }*/
+
+
+
+
+  /*hong
+  weig    promise2 promise3 promise4 promise{pending} after1
+  log     promise1 undefined end promise2 promise3 promise4 promise{pending} after1
+  let a;
+  const b = new Promise((resolve, reject) => {
+      console.log('promise1');
+      resolve();
+  }).then(() => {
+      console.log('promise2');
+  }).then(() => {
+      console.log('promise3');
+  }).then(() => {
+      console.log('promise4');
+  });
+
+  a = new Promise(
+      async (resolve, reject) => {
+      console.log(a);
+      await b;
+      console.log(a);
+      console.log('after1');
+      await a
+      resolve(true);
+      console.log('after2');
+  });
+
+  console.log('end');*/
+
+     /*宏队列
+     微队列
+  控制台打印  1   2   5 6 10  3  8
+  1,2,10,5,6,8,9,3*/
+
+  /*const p1 = () => (new Promise((resolve, reject) => {
+      console.log(1);
+      let p2 = new Promise((resolve, reject) => {
+          console.log(2);
+          const timeOut1 = setTimeout(() => {
+              console.log(3);
+              resolve(4);
+          }, 0)
+          resolve(5);
+      });
+      resolve(6);
+      p2.then((arg) => {
+          console.log(arg);
+      });
+
+  }));
+  const timeOut2 = setTimeout(() => {
+      console.log(8);
+      const p3 = new Promise(reject => {
+          reject(9);
+      }).then(res => {
+          console.log(res)
+      })
+  }, 0)
+
+  p1().then((arg) => {
+      console.log(arg);
+  });
+  console.log(10);*/
+
+
+</script>
+</body>
+</html>

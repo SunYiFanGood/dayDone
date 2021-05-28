@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 800px;
+      height: 500px;
+      border: 1px solid #000;
+      margin: 10px auto;
+      position: relative;
+    }
+
+    #con {
+      width: 60px;
+      height: 60px;
+      background-color: hotpink;
+      position: absolute;
+      left: 40px;
+      top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="box">
+  <div id="con"></div>
+</div>
+<script>
+  var oCon = document.getElementById('con');//获取节点
+  var oBox = document.getElementById('box');//获取节点
+  var l=40;
+  var t=80;
+  var flagL=true;//左右回弹开关
+  var flagT=true;//上下回弹开关
+  var outTime=setInterval(function (){
+
+    if (l>=oBox.clientWidth-oCon.offsetWidth){
+      flagL=!flagL;//当到右边时反弹
+    }else if (l===0){
+      flagL=!flagL;//当到左边时反弹
+    }
+    if (t>=oBox.clientHeight-oCon.offsetHeight){
+      flagT=!flagT;//当到下边时反弹
+    }else if (t===0){
+      flagT=!flagT;//当到上边时反弹
+    }
+    if (flagL){
+      l+=9;//每次加9
+      if (l>oBox.clientWidth-oCon.offsetWidth){
+        l=oBox.clientWidth-oCon.offsetWidth;//超出时返回临界值
+      }
+    }else {
+      l-=9;//每次减9
+      if (l<0){
+        l=0;//超出时返回临界值
+      }
+    }
+    if (flagT){
+      t+=9;//每次加9
+      if (t>oBox.clientHeight-oCon.offsetHeight){
+        t=oBox.clientHeight-oCon.offsetHeight;//超出时返回临界值
+      }
+    }else {
+      t-=9;//每次减9
+      if (t<0){
+        t=0;//超出时返回临界值
+      }
+    }
+      oCon.style.left=l+"px";//将l设置为元素left值
+      oCon.style.top=t+"px";//将t设置为元素top值
+
+  },20)
+
+</script>
+</body>
+
+</html>

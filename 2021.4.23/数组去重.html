@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var arr=[1,2,3,3,4,5,6,6,8,6,11,20,11,11,11];
+  for (var i=0;i<arr.length;i++){//遍历数组
+    //console.log(arr[i])
+    for (var j=i+1;j<arr.length;j++){//从arr[i]后一位遍历数组
+      //console.log("----->"+arr[j])
+      if(arr[i]===arr[j]){//当前后相等时执行下面语句
+        arr.splice(j,1);//删除后面那位相同的
+
+        j--;//防止删除后漏比，当前位置再比一次
+      }
+    }
+  }
+  arr.forEach(//遍历去重后的数组
+          function (value,index){
+            console.log(value,index);
+          }
+  )
+</script>
+</body>
+</html>

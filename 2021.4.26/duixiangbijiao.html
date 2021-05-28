@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkAge(data) {
+
+    if (data === { age: 18 }) {//对象进行比较时比较的是内存地址
+
+      console.log("You are an adult!");
+
+    } else if (data == { age: 18 }) {//对象进行比较时比较的是内存地址
+
+      console.log("You are still an adult.");
+
+    } else {//输出这个
+
+      console.log(`Hmm.. You don't have an age I guess`);
+
+    }
+
+  }
+
+  checkAge({ age: 18 });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+#out {
+  color: red;
+  display: flex;
+  width: 200px;
+  color: display1;
+  width: display1;
+  height: 200px;
+  color: green;
+}
+#out #inner {
+  color: red;
+  display: block;
+  width: 200px;
+  color: display2;
+  width: display2;
+  height: 200px;
+  color: green;
+}
+#out {
+  width: 200px;
+  color: red;
+  width: red;
+  height: 200px;
+  color: green;
+}
+#out #inner {
+  width: 50px;
+  height: 200px;
+  color: green;
+}
+#out {
+  color: 250px;
+  width: 250px;
+  color: green;
+  width: 200px;
+  height: 200px;
+  color: red;
+}
+#out #inner {
+  color: red;
+  width: 200px;
+  color: 50px;
+  width: 50px;
+  height: 200px;
+  color: green;
+}

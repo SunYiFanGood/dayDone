@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Function.prototype.myCall=myCall;//给function的构造函数添加myCall方法
+    function fn(a,b){
+        console.log(this,a+b)//输出当前this，预期为fn2
+    };
+    function fn2(a,b){
+        console.log(this,a+b)//输出当前this，预期为fn2
+    };
+    function myCall(value){
+        //判断第一个传入的实参数据类型
+        //null和undefined则将value赋值为window
+        if (value===null||value===undefined){
+            value=window;
+        }
+        //如果value是基本数据类型则转换为该类型的包装对象
+        if (typeof value !="object"&&typeof value !="function"){
+            value=Object(value);
+        }
+        //通过arguments获取第二个及以后的实参
+        var arr=Array.from(arguments).slice(1);
+        // console.log(arr)
+        //给value添加一个方法，将fn赋值给方法，用value调用fn达到将fn的this指向value的目的，最后调用
+        // value.fn3=this;
+        //为防止传入的value有一个方法重名被覆盖，取用的临时方法名采用时间戳命名
+        var key=Date.now().toString(36);
+        value[key]=this;
+        // value.fn3();
+        //将整个语句转换为字符串，通过eval方法执行
+        eval("value[key]("+arr.toString()+")");
+        //用完fn3后后续用不到，删除fn3
+        delete value[key];
+    }
+
+    fn.myCall(fn2,1,3);//用call的方式使用myCall调用
+    fn2.myCall(fn,2,5);//用call的方式使用myCall调用
+
+</script>
+</body>
+</html>

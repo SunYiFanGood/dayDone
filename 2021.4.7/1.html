@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .xxk {
+      width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .xxk-big {
+      width: 500px;
+      height: 400px;
+    }
+    .xxk-big img {
+      position: absolute;
+      width:500px;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+    .xxk-big img:first-child{
+        display: block;
+    }
+    .xxk-small li img {
+      width:86px;
+    }
+    .xxk-small li {
+      display: inline-block;
+      margin-left:5px;
+      margin-right: 5px;
+      
+    }
+    .xxk-big img:target{
+        display: block;
+    }
+  </style>
+  <body>
+    <div class="xxk">
+      <div class="xxk-big">
+        <img id="i1" src="./kof-01.jpg" />
+        <img id="i2" src="./kof-02.jpg" />
+        <img id="i3" src="./kof-03.jpg" />
+        <img id="i4" src="./kof-04.jpg" />
+        <img id="i5" src="./kof-05.jpg" />
+      </div>
+      <ul class="xxk-small">
+        <li>
+          <a href="#i1"><img src="./kof-01.jpg" /></a>
+        </li>
+        <li>
+          <a href="#i2"><img src="./kof-02.jpg" /></a>
+        </li>
+        <li>
+          <a href="#i3"><img src="./kof-03.jpg" /></a>
+        </li>
+        <li>
+          <a href="#i4"><img src="./kof-04.jpg" /></a>
+        </li>
+        <li>
+          <a href="#i5"><img src="./kof-05.jpg" /></a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

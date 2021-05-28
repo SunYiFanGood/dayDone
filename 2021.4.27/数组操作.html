@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var arr=["a",22,"b","c",13,"d",55,3,"e","b",];
+  //shift删除头部，unshift头部添加
+  console.log(arr.shift());
+  console.log(arr);
+  console.log(arr.unshift(1,3));
+  console.log(arr);
+  console.log(arr.unshift(1));
+  console.log(arr);
+  console.log(arr.unshift(3));
+  console.log(arr);
+  //splice,第一个值代表开始位置，第二个值代表截取个数，第三个和后面的值代表在开始位置添加的值，返回值为删除的值组成的数组
+  console.log(arr.splice(2,2,"a",5));
+  console.log(arr);
+  //slice,,第一个值代表开始位置，第二个值代表结束位置，返回值为删除的值组成的数组
+  console.log(arr.slice(2,3));
+  console.log(arr);
+  //reverse,翻转数组，返回值为原来数组的引用地址
+  console.log(arr.reverse());
+  console.log(arr);
+  //for循环遍历数组去除arr数组所有不是数字的值
+  for (var i=0;i<arr.length;i++){
+      if (isNaN(arr[i])){
+          arr.splice(i,1);
+          i--;
+      }
+  }
+  //forEach,遍历数组，第一个值为值，第二个为下标，第三个为所属的对象（数组）
+  console.log(arr.forEach(
+      function (value,index,object){
+          console.log(value,index,object);
+      }
+  ));
+  console.log(arr);
+  //sort,排序，a为b后面的值，函数返回值小于0时交换顺序，正序倒序取决于第一对a，b大小
+  console.log(arr.sort(
+      function (a,b){
+          return a-b;
+      }
+  ));
+  console.log(arr);
+  //join方法将数组内的所有值以字符串拼接，join传递的参数为每个值间隔的符号，空串为无，不写为逗号，不影响原来数组
+  console.log(arr.join(''));
+  console.log(arr);
+  //indexOf正序查找第一个值并返回下标，lastIndexOf逆序查找第一个值并返回下标
+  console.log(arr.indexOf(22));
+  console.log(arr.lastIndexOf(3));
+  console.log(arr);
+  //映射，遍历数组，将arr函数的值进行处理后返回一个新数组
+  console.log(arr.map(
+      function (value,index){
+          return value;
+      }
+  ));
+  console.log(arr);
+  //every,检查每个元素是否满足某个条件，全部满足返回ture，some检查是否有元素满足某个条件，有一个满足则返回ture
+  console.log(arr.every(
+      function (value){
+          return value>8;
+      }
+  ));
+  console.log(arr.some(
+      function (value){
+          return value>8;
+      }
+  ));
+  console.log(arr);
+  //filter筛选所有满足条件的元素
+  console.log(arr.filter(
+      function (value){
+          return value>8;
+      }
+  ));
+  console.log(arr);
+
+
+</script>
+
+</body>
+</html>

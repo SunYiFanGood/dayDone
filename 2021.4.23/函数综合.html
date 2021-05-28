@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn(a) {//定义一个函数fn，定义形参a
+        a += 3;
+        console.log("a=" + a);//计算并输出形参a
+        if (arguments[1] !== undefined) {//如果有第二个参数传递过来，则执行下面语句
+            arguments[1] += 4;
+            console.log("b=" + arguments[1]);//输出第二个参数计算后的值
+            if (arguments[2] !== undefined) {//如果有第三个参数，则执行下面语句
+                arguments[2] += 6;
+                console.log("c=" + arguments[2]);
+            }else{
+                throw new SyntaxError('不能传参超过三个值');//超过三个数则报错
+            }
+
+        }
+
+        //console.log("长度---" + arguments.length);
+
+    }
+
+    fn(1, 2, 3);//执行fn，并传递3个值
+
+    !function () {//匿名函数自调用
+        alert("我没有名字，我就是不取，哎~我就是玩！！（匿名函数自调用）")
+    }();
+</script>
+</body>
+</html>

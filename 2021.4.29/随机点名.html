@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        h1 {
+            margin: 50px auto;
+            font-size: 60px;
+            color: lawngreen;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: lemonchiffon;
+            font-size: 100px;
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <h1 id="go">Start</h1>
+    <p id="con">点击Start开始</p>
+</div>
+<script>
+    var oGo = document.getElementById('go');
+    var oCon = document.getElementById('con');
+    const allName = ["洗衣服", "拖地", "洗碗", "玩手机", "给点击人按摩", "刷鞋", "叠衣服", "拖地", "倒垃圾", "泡茶", "买菜", "洗菜", "准备早点", "煮饭", "整理杂物", "躺好", "打游戏",
+        "看剧", "吃零食", "买衣服", "买游戏皮肤", "逛街", "看电影"
+    ];
+    var timer=null;
+    var flag=false;
+    document.onkeydown = function(event){        //在全局中绑定按下事件
+
+        var e  = event  ||  window.e;
+
+        var keyCode = e.keyCode || e.which;
+
+        switch(keyCode){
+
+            case 38:
+
+                clearInterval(timer);
+                oCon.textContent =allName[4];
+
+                break;
+                default:;
+
+        }
+
+    }
+    oGo.onclick=function (){
+
+                if (flag){
+                    oGo.textContent = "Start";
+                    clearInterval(timer);
+                }else{
+                    timer=setInterval(
+                        function (){
+                            var re=random(0,allName.length);
+                            oCon.textContent = allName[re];
+                        },50
+                    )
+                }
+                flag=!flag;
+
+        }
+
+
+
+    function random(min,max){
+        return Math.floor(Math.random()*(max+1-min)+min);
+    };
+</script>
+</body>
+
+</html>

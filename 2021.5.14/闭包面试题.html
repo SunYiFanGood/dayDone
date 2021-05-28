@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<script>
+ /* //代码片段一
+    var name = "The Window";
+   var object = {
+       name: "My Object",
+       getNameFunc: function () {
+           return function () {
+               return this.name;//第一次this指向object，第二次执行前面返回值为函数，函数自调用this指向window
+           };
+       }
+   };
+   console.log(object.getNameFunc()()); //the window */
+
+  //代码片段二
+  /* var name2 = "The Window";
+  var object2 = {
+      name2: "My Object",
+      getNameFunc: function () {
+          var that = this;
+          return function () {
+              return that.name2;//第一次执行时that保存了this，此时that为object2，第二次执行弹出object2.name2
+          };
+      }
+  };
+  console.log(object2.getNameFunc()()); //My Object */
+
+
+   /* var a = function (val, index) {
+       console.log(index);
+       return {
+           fn: function (name) {
+               return a(name, val)
+           }
+       }
+   }
+   var b = a(0); //undefined    a（0）执行后，第二个参数没传参，为undefined
+   b.fn(1); //0    b.fn（1）相当于a（1,0），形成闭包，val使用外层函数的val=0
+   b.fn(2); //0    b.fn（2）相当于a（2,0），形成闭包，val使用外层函数的val=0
+   b.fn(3); //0    b.fn（3）相当于a（3,0），形成闭包，val使用外层函数的val=0
+
+   var c = a(0).fn(1).fn(2).fn(3); //undefined 0 1 2   执行a（0），输出undefined返回fn，fn（1）相当于a（1,0）输出0,返回fn，fn（2）相当于a（2，1）输出1返回fn，fn（3）相当于a（3.2），输出2返回fn*/
+
+  /* var x = 1;
+  var y = 2;
+
+  function show() {
+      var x = 2;
+      return {
+          x: x, //返回对象的时候 x已经解析为2了 将来把show的x改变了也不影响
+          fun: function (a, b) {
+              x = a + b;
+          }
+      }
+  }
+  var obj = show();
+  obj.fun(x, y)//此时x，y使用的是全局变量，fun内部x改变为3，但是obj为对象，改变fn属性的x并不会影响x属性，show（）没有对obj重新赋值，obj.x还为2
+  console.log(obj.x);//2
+
+  console.log(x); //1   输出的为全局的x*/
+
+
+
+
+ /*  var name = "aaa";
+  var obj = {
+      name: "bbb",
+      dose: function () {
+          this.name = "ccc";
+          return function () {
+              return this.name
+          }
+      }
+  }
+  alert(obj.dose().call(this)) //aaa   obj.dose()里面的this指向obj，将obj.name改成了ccc，返回一个函数执行call，call括号的this在全局，指向window，输出aaa
+  alert(obj.name) //ccc */
+
+   function Foo() {
+      var i = 0;
+      return function () {
+          console.log(i++);
+      }
+  }
+  var f1 = Foo();//赋值后，fi获取的i初始值为0
+  f2 = Foo();//赋值后，f2获取的i初始值为0
+  f1(); //0  执行返回的函数，函数内部没有i，找外部函数的i，i++先赋值后递增，输出没有递增前的i=0
+  f1(); //1  执行返回的函数，函数内部没有i，找外部函数的i，此时i已被递增一次，i=1，i++先赋值后递增，输出没有递增前的i=,1
+  f2(); //0   执行返回的函数，函数内部没有i，找外部函数的i，i++先赋值后递增，输出没有递增前的i=0，f1的执行不影响f2
+
+
+  function test(a, b) {
+    b = a + 10;
+    alert(b);
+    return {
+      test: function (a, b) {
+        return test(b, a);
+      }
+    }
+  }
+  var a = test(100, 200);
+  a.test(300);
+  a.test(400);
+
+  var b = test(101).test(201).test(401);
+  var c = test(102).test(202, 302);
+  c.test();
+
+  /* function fun(n, o) {
+      console.log(o)
+      return {
+          fun: function (m) {
+              return fun(m, n)
+          }
+      }
+  }
+  var a = fun(0)
+  a.fun(1)
+  a.fun(2)
+  a.fun(3) //undefined,0 0 0
+
+  var b = fun(0).fun(1).fun(2).fun(3) //undefined, 0 1 2
+
+  var c = fun(0).fun(1)
+  c.fun(2)
+  c.fun(3) //undefined,0 1 1 */
+</script>
+</body>
+
+</html>

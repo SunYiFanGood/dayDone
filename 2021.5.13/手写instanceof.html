@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function myInstanceof(a,b){
+        var B=b.prototype;//获取b的原型对象
+        var A=a.__proto__;//获取a构造函数的原形对象
+        while(A){//当A不为null时一直执行
+            if (A===B){//如果a的构造函数的原形对象与b的原形对象全等
+                return true;//返回true
+            }
+            A=A.__proto__;//不相等则把A的构造函数的原形对象赋值给A
+        }
+        return false;//如果while函数执行完也没有return，则说明b不在a的原型链上，则返回false
+    }
+    function Foo() {}
+    var f1 = new Foo();
+    console.log(myInstanceof(f1,Foo));//传入参数，检测第二个参数是否在第一个参数的原型链上
+</script>
+</body>
+</html>

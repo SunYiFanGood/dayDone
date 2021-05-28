@@ -1,0 +1,96 @@
+.aaa {
+  position: relative;
+  float: left;
+  animation: move1 10s infinite;
+  -moz-animation: move1 10s infinite; /* Firefox */
+  -webkit-animation: move1 10s infinite; /* Safari and Chrome */
+  -o-animation: move1 10s infinite; /* Opera */
+  animation-delay: 0.5s;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  transform-origin: 50px 50px;
+}
+@-moz-keyframes move1 {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  25% {
+    top: 300px;
+    opacity: 0.6;
+  }
+  45% {
+    top: 250px;
+    opacity: 0.5;
+  }
+  65% {
+    top: 270px;
+    opacity: 0.4;
+  }
+  75% {
+    top: 300px;
+    opacity: 0.3;
+  }
+  95% {
+    top: 290px;
+    opacity: 0.2;
+  }
+  100% {
+    top: 300px;
+    opacity: 0.1;
+  }
+}
+
+.bbb {
+  position: relative;
+  float: left;
+  animation: move2 5s infinite;
+  -moz-animation: move2 5s infinite; /* Firefox */
+  -webkit-animation: move2 5s infinite; /* Safari and Chrome */
+  -o-animation: move2 5s infinite; /* Opera */
+  animation-delay: 1s;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+}
+@keyframes move2 {
+  0% {
+    top: 0px;
+  }
+  25% {
+    top: 50px;
+  }
+  50% {
+    top: 70px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+.ccc {
+  position: relative;
+  float: left;
+  animation: move3 5s infinite;
+  -moz-animation: move3 5s infinite; /* Firefox */
+  -webkit-animation: move3 5s infinite; /* Safari and Chrome */
+  -o-animation: move3 5s infinite; /* Opera */
+  animation-delay: 1s;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+}
+@keyframes move3 {
+  0% {
+    top: 0px;
+  }
+  25% {
+    top: 50px;
+  }
+  50% {
+    top: 70px;
+  }
+  100% {
+    top: 0px;
+  }
+}

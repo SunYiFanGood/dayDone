@@ -1,0 +1,45 @@
+ul li {
+  list-style: none;
+  width: 100px;
+}
+.xxk li {
+  float: left;
+  margin-top: 200px;
+}
+.xxk li>div {
+  height: 20px;
+  width: 50px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 1.3em;
+}
+.xxk li div div {
+  position: relative;
+  width: 460px;
+  top: -110px;
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.xxk li > div > div {
+  background-color: rgba(39, 39, 39, 0.5);
+  height: 180px;
+  margin-top: -110px;
+  border-radius: 2%;
+}
+.xxk li div p {
+  position: relative;
+  text-align: left;
+  top: 10px;
+  margin-left: 5px;
+  color: aliceblue;
+}
+.xxk li div:hover div {
+  opacity: 1;
+}
+.xxk div div img {
+  width: 100px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 110px;
+  border-radius: 5%;
+}

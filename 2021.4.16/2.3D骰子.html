@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      position: relative;
+      display: flex;
+      /* border: 1px solid #ccc; */
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      top: 200px;
+      animation: xz 7s infinite;
+      transform-style: preserve-3d;
+    }
+    .box > div {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-image: radial-gradient(#fff, #ccc);
+      /* border-radius: 8%; */
+    }
+
+    .box > div > div {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: radial-gradient(rgb(241, 25, 25), black);
+    }
+    .box-1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .box-2 {
+        left: 99px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      
+    }
+    .box-3 {
+        top: -99px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+    }
+    .box-3 div:nth-child(1) {
+      align-self: flex-start;
+    }
+    .box-3 div:nth-child(3) {
+      align-self: flex-end;
+    }
+    .box-4 {
+        right: 99px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .box-4 div {
+      margin: 20px;
+    }
+    .box-5 {
+      bottom: -99px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      
+    }
+    .box-5 div {
+      margin: 20px;
+    }
+    .box-5 div:nth-child(5) {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -25px;
+      margin-top: -25px;
+    }
+    .box-6 {
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .box-6 div {
+      margin: 0 20px;
+    }
+    /* 3D效果*/
+    .box-1{
+        transform:translateZ(100px);
+
+    }
+    .box-2 {
+      transform: rotatey(90deg);
+    }
+    .box-3 {
+      transform: rotatex(90deg);
+    }
+    .box-4 {
+      transform: rotatey(-90deg);
+    }
+    .box-5 {
+      transform: rotatex(-90deg);
+    }
+    .box-6 {
+      transform:translateZ(-100px);
+    }
+    /*定义动画*/
+    @keyframes xz {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      50% {
+        transform: rotateX(230deg) rotateY(-20deg) rotateZ(-90deg);
+      }
+      100% {
+        transform: rotateX(-360deg) rotateY(360deg) rotateZ(-360deg);
+      }
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="box-1">
+        <div></div>
+      </div>
+      <div class="box-2">
+        <div></div>
+        <div></div>
+      </div>
+      <div class="box-3">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="box-4">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="box-5">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="box-6">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

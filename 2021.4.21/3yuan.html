@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  //if优化三元运算
+  var a=12,b=11;
+  /*if (a<10){
+    b=1;
+  }else {
+    b=3
+  }*/
+  //a<10?b=1:b=3;
+  //b=a<10?1:3;
+  a > 10 && (b = 3) || (b = 1);//a>10为true时，返回b=3，a>10为false时，返回b=1
+  console.log(b)
+</script>
+</body>
+</html>

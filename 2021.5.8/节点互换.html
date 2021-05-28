@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .out{
+      width: 1000px;
+      margin:50px auto;
+      display: flex;
+      text-align: center;
+      border: 1px solid #000000;
+    }
+    .left{
+      flex-grow: 2;
+      border: 1px solid #000000;
+    }
+    .center{
+      flex-grow: 1;
+      border: 1px solid #000000;
+    }
+    .right{
+      flex-grow: 2;
+      border: 1px solid #000000;
+    }
+  </style>
+
+</head>
+<body>
+<div class="out">
+  <ul class="left">
+    <li>我是左边的1</li>
+    <li>我是左边的2</li>
+    <li>我是左边的3</li>
+    <li>我是左边的4</li>
+  </ul>
+  <ul class="center">
+    <li class="centerLeft">>>>>>></li>
+    <li class="centerRight"><<<<<<</li>
+  </ul>
+  <ul class="right">
+    <li>我是右边的1</li>
+    <li>我是右边的2</li>
+    <li>我是右边的3</li>
+    <li>我是右边的4</li>
+  </ul>
+</div>
+<script>
+  var oLeft=document.querySelector(".centerLeft");
+  var oRight=document.querySelector(".centerRight");
+  var oR=document.querySelector(".right");
+  var oL=document.querySelector(".left");
+  var oLeftLis=oL.getElementsByTagName("li");
+  var oRightLis=oR.getElementsByTagName("li");
+
+  for (var value in oLeftLis){
+    //console.log(oLeftLis[value])
+    oLeftLis[value].onclick=function (){
+      this.setAttribute("click", "true");
+      this.style.backgroundColor="red";
+    }}
+
+  for (var value in oRightLis){
+    oRightLis[value].onclick=function (){
+      this.setAttribute("click", "true");
+      this.style.backgroundColor="red";
+    }}
+
+  oLeft.onclick=function (){
+    for (var i=0;i<oLeftLis.length;i++){
+      if (oLeftLis[i].getAttribute("click")){
+        oLeftLis[i].removeAttribute("click");
+        oLeftLis[i].style.backgroundColor="#fff";
+        oR.appendChild(oLeftLis[i]);
+        i--;
+
+      }
+    }
+
+  };
+  oRight.onclick=function (){
+    for (var i=0;i<oRightLis.length;i++){
+      if (oRightLis[i].getAttribute("click")){
+        oRightLis[i].removeAttribute("click");
+        oRightLis[i].style.backgroundColor="#fff";
+        oL.appendChild(oRightLis[i]);
+        i--
+      }
+    }
+  };
+
+  //console.log(oRightLis)
+</script>
+</body>
+</html>

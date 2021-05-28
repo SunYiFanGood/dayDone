@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #box1 {
+      background-color: red;
+    }
+
+    #box2 {
+      background-color: pink;
+    }
+
+    #box3 {
+      background-color: yellowgreen;
+    }
+
+    #box4 {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4"></div>
+<script>
+  //构造函数，原形对象实现面向对象
+  function Move(box){
+    this.oBox=document.getElementById(box);//给实例化对象增加一个属性保存节点
+    var _this=this;//声明变量保存当前this，指向实例化对象
+    this.oBox.onmousedown=function(e){
+        e.preventDefault();//阻止默认事件，防止出现因为触发默认事件导致其他事件不触发
+        _this.down(e);//实例化对象通过原型链调用构造函数原形对象上的方法
+    }
+  }
+  Move.prototype.down=function(e){
+      this.mouseToBox={//给实例化对象增加一个属性保存鼠标和box的距离
+          x:e.offsetX,
+          y:e.offsetY
+      }
+      var _this=this;//声明变量保存当前this，指向实例化对象
+      document.onmousemove=function (e){
+          _this.move(e);//实例化对象通过原型链调用构造函数原形对象上的方法
+      }
+      document.onmouseup=function (){
+          _this.up();//实例化对象通过原型链调用构造函数原形对象上的方法
+
+      }
+  }
+  Move.prototype.move=function(e){
+      var boxMoveTo={//声明一个对象保存盒子将要移动到的坐标
+          x:e.clientX-this.mouseToBox.x,
+          y:e.clientY-this.mouseToBox.y
+      }
+      this.oBox.style.left=boxMoveTo.x+"px";//通过实例化对象访问节点并改变left值
+      this.oBox.style.top=boxMoveTo.y+"px";//通过实例化对象访问节点并改变top值
+  }
+  Move.prototype.up=function(){
+      document.onmousemove=null;//清除事件
+      document.onmouseup=null;//清除事件
+      console.log("我触发了")
+  }
+  //实例化对象
+  new Move("box1");
+  new Move("box2");
+  new Move("box3");
+  new Move("box4");
+</script>
+</body>
+</html>

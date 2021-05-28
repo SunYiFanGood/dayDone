@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 200px;
+      background-color: #cc6600;
+      border-radius: 50%;
+      text-align: center;
+      color: #fafafa;
+      margin: 60px auto;
+    }
+  </style>
+</head>
+<body>
+<div id="box">
+  ooooooo
+</div>
+<script>
+  var speed=0;
+  var oBox=document.getElementById("box");
+  oBox.onmouseenter=function (){
+    var timer=setInterval(function (){
+      speed+=10;
+      oBox.style.transform="rotateZ("+speed+"deg)";
+    },2)
+  }
+
+</script>
+</body>
+</html>

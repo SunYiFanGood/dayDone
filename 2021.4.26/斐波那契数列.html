@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+              使用一个数组 保存50长度的斐波那契数列值
+              斐波那契数列前两个值是0 和 1
+              0 1 1 2 3 5 8 13 21 34
+
+    */
+    var arr=[0,1];//定义初始数组，预留前两个值
+    for (var i=2;i<50;i++){//从第三个值开始让数组长度增加到50
+        arr.push(arr[i-1]+arr[i-2]);//从数组最后一个开始添加值为前两个值之和的值
+    }
+    console.log(arr);//输出arr数组
+
+</script>
+</body>
+</html>

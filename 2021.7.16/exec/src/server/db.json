@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "username": "aaaaa",
+      "nickname": "aaaaa",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "username": "bbbbb",
+      "nickname": "bbbbb",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "username": "ccccc",
+      "nickname": "ccccc",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "ddddd",
+      "nickname": "ddddd",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "username": "dfgsfs",
+      "nickname": "sdfsdf",
+      "password": "111111",
+      "id": 5
+    }
+  ]
+}

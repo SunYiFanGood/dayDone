@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .sp{
+            color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/babel.min.js"></script>
+<script src="./"></script>
+<!--<script>
+    const box=React.createElement("h1", {className:"box"},"hh");
+    ReactDOM.render(box,document.getElementById("root"));
+</script>-->
+<script type="text/babel">
+    const div=<div>
+        <div>
+            <span className="sp">嘻嘻嘻</span>
+        </div>
+    </div>
+    ReactDOM.render(div,document.getElementById("root"))
+</script>
+
+</body>
+</html>

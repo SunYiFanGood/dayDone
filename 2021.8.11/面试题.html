@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题</title>
+</head>
+<body>
+<script>
+    //请用 JavaScript 语言实现 sort 排序函数，要求：sort([5, 100, 6, 3, -12]) // 返回 [-12, 3, 5,6, 100]。
+    /*let arr = [5, 100, 6, 3, -12]
+    function sort(arr) {
+        //冒泡
+        /!*for (let i = 0; i < arr.length; i++) {
+            for (let j = i+1; j < arr.length; j++) {
+                let iValue = arr[i]
+                let jValue = arr[j]
+                if (arr[i]>arr[j]){
+                    arr[i] = jValue
+                    arr[j] = iValue
+                }
+            }
+        }
+        return arr*!/
+        //二分法
+        if (arr.length === 1) return arr
+        let middle = Math.ceil(arr.length/2)-1
+        let leftArr = []
+        let rightArr = []
+        let finallyArr = []
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < arr[middle]){
+                leftArr.push(arr[i])
+            }else {
+                rightArr.push(arr[i])
+            }
+        }
+        finallyArr = sort(leftArr).concat(sort(rightArr))
+        return finallyArr
+    }
+    const res = sort(arr)
+    console.log(res)*/
+
+
+    //arrayDeduplication
+    //请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目(可能有多个)，返回值是一个包含被删除的重复条目的新数组。
+    /*Array.prototype.arrayDeduplication = function () {
+        let arr = this
+        let newArr = []
+        for (let i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(arr[i]) === -1){
+                newArr.push(arr[i])
+            }
+        }
+        return newArr
+    }
+    const res = [0,2,5,6,4,8,5,5,3,2,2,1,0,0,2,5,6,6,6,2,4,5,4].arrayDeduplication()
+    console.log(res)*/
+
+
+    //使用 Javascript 打印出 1-10000 之间的所有对称数（例如 121 1331 等）。
+    /*console.time('runTime')
+    let finallyArr = []
+    for (let i = 10; i < 10000; i++) {
+        let arr = i.toString().split('')
+        let isTrue = true
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] !== arr[arr.length-1-j]){
+                isTrue = false
+                break
+            }
+        }
+        isTrue && finallyArr.push(i)
+    }
+    console.log(finallyArr)
+    console.timeEnd('runTime')*/
+
+    //用 js 实现如下功能，将给定的数字转化成千分位的格式，如把“10000”转化成“10,000”，并考虑到性能方面的因素
+    console.time('runTime')
+    function getNum(num){
+        let arr = num.toString().split('')
+        for (let i = arr.length-4; i >0 ; i-=3) {
+            arr.splice(i+1,0,',')
+            console.log(arr)
+        }
+        return
+    }
+    console.log(getNum(1000534345340))
+    console.timeEnd('runTime')
+
+</script>
+</body>
+</html>

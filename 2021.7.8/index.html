@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+    <input v-model="msg">
+    <div v-for="(item,index) in arr " >
+        <p>{{index}}:{{item}}</p>
+    </div>
+    <div v-for="(value,key) in obj " >
+        <p>{{key}}:{{value}}</p>
+    </div>
+<!--    <div>{{arr}}</div>-->
+</div>
+<script src="./js/vue.js"></script>
+<script>
+    const msg = '你好，vue';
+    let arr = [1, 2, 5, 7, 5, 9, 8, 2, 5, 9, 5]
+    let obj = {
+        name: 'kk',
+        age: 18,
+        info: '嘿嘿'
+    }
+    new Vue({
+        el: '#app',
+        data: {
+            msg, arr, obj
+        }
+    })
+</script>
+</body>
+</html>

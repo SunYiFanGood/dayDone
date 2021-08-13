@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input v-model="select" placeholder="请输入要搜索的内容">
+  <ul>
+    <li v-for="person in updatedPersons" >
+
+      {{person.id}}-<span v-html="person.name.replace(select,'<span style=color:red>'+select+'</span>')"></span>-{{person.age}}
+
+    </li>
+  </ul>
+  <button @click="orderType='asc'">年龄升序</button>
+  <button @click="orderType='desc'">年龄降序</button>
+  <button @click="orderType='default'">默认排序</button>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+  let persons=[
+    {
+      id:1,
+      name:'jack',
+      age:13
+    },
+    {
+      id:2,
+      name:'mack',
+      age:133
+    },
+    {
+      id:3,
+      name:'tom',
+      age:19
+    },
+    {
+      id:4,
+      name:'jerry',
+      age:55
+    },
+  ]
+  new Vue({
+    el: '#app',
+    data: {
+      select:"",
+      persons,
+      orderType:"default",
+      str:''
+    },
+    computed:{
+      updatedPersons(){
+        let newPerson=this.persons.filter((person)=>{
+          return person.name.indexOf(this.select) !== -1;
+        })
+        let arr=newPerson;
+        // arr.map((person)=>{
+        //   person.name=person.name.replace(this.select,'<span style="color: red">'+this.select+'</span>')
+        // })
+
+        if (this.orderType==='default')return newPerson;
+        let updatePerson;
+        updatePerson=newPerson.sort((a,b)=>{
+          return this.orderType==='asc'?a.age-b.age:b.age-a.age;
+        })
+        // this.select,'<span style="color: red">'+this.select+'</span>'
+        return updatePerson;
+
+      }
+    }
+  })
+</script>
+</body>
+</html>

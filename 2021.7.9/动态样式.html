@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: cadetblue;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: cadetblue;
+    }
+</style>
+<body>
+<div id="app">
+    <div class="box" :class="isBlue?'blue':'red'" :style="{width:width+'px',
+  height:height+'px'}">
+
+    </div>
+    <button @click="changeColor">点击切换颜色</button>
+    <input v-model="width">
+    <input v-model="height">
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isBlue: true,
+            width: 200,
+            height: 200
+        },
+        methods: {
+            changeColor() {
+                this.isBlue = !this.isBlue;
+            },
+        },
+    })
+</script>
+</body>
+</html>

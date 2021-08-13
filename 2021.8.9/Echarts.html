@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #charts {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<div id="charts"></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+<script>
+    const charts = document.getElementById('charts')
+    const myEcharts = echarts.init(charts)
+    const data = [454,54,987,8215,313,4545,6566]
+    myEcharts.setOption({
+        // 标题
+        title: {
+            text: '多个图表'
+        },
+        dataset: {
+            source: data
+        },
+        // x轴
+        xAxis: {
+            type: 'category',
+            // x轴的数据名称
+            data: [
+                '星期一',
+                '星期二',
+                '星期三',
+                '星期四',
+                '星期五',
+                '星期六',
+                '星期天'
+            ]
+        },
+        // y轴
+        yAxis: {
+            // show: true,
+            // 轴线
+            axisLine: {
+                // 显示
+                show: true
+            }
+        },
+        // 系列：指定数据和图表类型
+        series: [
+            {
+                // 图表的类型
+                name: 'bar',
+                type: 'bar', // 柱状图
+                data
+            },
+        ],
+        // 颜色
+
+    })
+</script>
+</body>
+</html>

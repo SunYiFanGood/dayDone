@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.
+/*    let arr = [100,1,1000];
+    let maximumElementAfterDecrementingAndRearranging = function (arr) {
+        let newArr = arr.sort((a, b) => {
+            return a - b
+        })
+        if (newArr[0] > newArr[newArr.length - 1]) {
+            newArr = newArr.reverse()
+        }
+        console.log(newArr)
+        newArr[0] = 1
+        let arrCopy=newArr
+        let res=newArr.reduce((pre,item,index)=>{
+            if (!(item-1<=newArr[index+1]&&newArr[index+1]<=item+1)){
+                if (index+1>pre.length-1)return pre
+                pre[index+1]=item+1
+            }
+            return pre
+        },arrCopy)
+        console.log(res)
+        console.log(res[res.length-1])
+        return res[res.length-1]
+    };
+    maximumElementAfterDecrementingAndRearranging(arr)*/
+
+
+    //2.
+    /*let nums=[2,7,11,15]
+    let targetNum=9;
+    let twoSum = function(nums, target) {
+        for (let i=0;i<nums.length;i++){
+            for (let j=i+1;j<nums.length;j++){
+                if (nums[i]+nums[j]===target){
+                    return [i,j]
+                }
+            }
+        }
+    };
+    console.log(twoSum(nums,targetNum))*/
+    //3
+
+    /*let addTwoNumbers = function(l1, l2) {
+        let sum=+l1.reverse().join("")+(+l2.reverse().join(""))
+        return sum.toString().split("").reverse()
+    };
+    console.log(addTwoNumbers([2,4,3],[5,6,4]))*/
+
+    //4
+   /* let lengthOfLongestSubstring = function(s) {
+        if (s==="")return 0;
+        if (s.length===1) return 1;
+        let arr=s.split("")
+        console.log(arr)
+        let all=[];
+        let res=0;
+        for (let i=0;i<arr.length;i++){
+            let str=arr[i]
+            for (let j=i+1;j<arr.length;j++){
+                function addStr(str){
+                    if (str.indexOf(arr[j])===-1){
+                        str+=arr[j];
+                        j+=1;
+                        if (j>=arr.length)j=arr.length-1
+                        addStr(str)
+                    }else {
+                        all.push(str);
+                        return
+                    }
+                }
+                addStr(str)
+                break
+            }
+        };
+        console.log(all)
+        all.forEach((item,index)=>{
+            if (item.length>res){
+                res=item.length
+            }
+        })
+        return res
+    };
+    console.log(lengthOfLongestSubstring(" "))*/
+
+    //5
+    /*let findMedianSortedArrays = function(nums1, nums2) {
+
+        let nums=nums1.concat(nums2).sort((a,b)=>{
+            return a-b
+        });
+        let n=nums.length
+        console.log(nums)
+        return n%2===0?(nums[n/2]+nums[n/2-1])/2:nums[Math.ceil(n/2)-1]
+    };
+    console.log(findMedianSortedArrays([1,2],[3,4]))*/
+
+    //6
+    var reverse = function(x) {
+        if (x>=0){
+            return +x.toString().split("").reverse().join("")
+        }else {
+            let a=x.toString().split("")[0];
+            let arr=x.toString().split("");
+            arr.shift()
+            return  +(a+arr.reverse().join(""));
+        }
+    };
+    console.log(reverse(120))
+</script>
+</body>
+</html>

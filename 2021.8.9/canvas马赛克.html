@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #img{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+<img src="./img/11454.jpg" id="img">
+<canvas id="box"></canvas>
+<script>
+    const canvas = document.getElementById('box')
+    const img = document.getElementById('img')
+    const ctx = canvas.getContext('2d')
+    let height, width
+    img.onload = function () {
+        width = img.width*2
+        height = img.height*2
+        drawImg(img)
+    }
+    function drawImg() {
+        canvas.width = width
+        canvas.height = height
+        ctx.drawImage(img,0,0,width,height)
+        const imageData = ctx.getImageData(0, 0, width, height)
+        const newImageData = ctx.createImageData(imageData)
+        console.log(newImageData)
+        const size = 8
+        for (let i = 0; i < height; i+=size) {
+            for (let j = 0; j < width; j+=size) {
+                const position =
+                    (i + Math.round(Math.random() * (size - 1))) * width * 4 +
+                    (j + Math.round(Math.random() * (size - 1))) * 4
+
+                // 颜色
+                const r = imageData.data[position]
+                const g = imageData.data[position + 1]
+                const b = imageData.data[position + 2]
+                const a = imageData.data[position + 3]
+                for (let k = 0; k < size; k++) {
+                    for (let l = 0; l < size; l++) {
+                        const position = (i + k) * width * 4 + (j + l) * 4
+
+                        newImageData.data[position] = r
+                        newImageData.data[position + 1] = g
+                        newImageData.data[position + 2] = b
+                        newImageData.data[position + 3] = a
+                    }
+                }
+            }
+        }
+        // 清空上一次
+        ctx.clearRect(0, 0, width, height)
+        // 将新图片绘制到canvas中
+        ctx.putImageData(newImageData, 0, 0)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input v-model="firstName"></br>
+    <input v-model="lastName"></br>
+    <input :value="fullName"></br>
+    <input v-model="fullName2">
+</div>
+<script src="./js/vue.js"></script>
+<script>
+    let firstName='李';
+    let lastName='沛华'
+    new Vue({
+        el: '#app',
+        data: {
+            firstName,
+            lastName
+        },
+        computed:{
+            fullName(){
+                return this.firstName+' '+this.lastName;
+            },
+            fullName2:{
+                get(){
+                    return this.firstName+' '+this.lastName;
+                },
+                set(val){
+                    let [firstName,lastName]=val.split(" ");
+                    this.firstName=firstName?firstName:'';
+                    this.lastName=lastName?lastName:'';
+                }
+            }
+        },
+        method:{
+
+        },
+        watch:{
+        }
+    })
+</script>
+</body>
+</html>

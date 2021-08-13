@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//   给你一个整数数组 nums 和一个整数 target 。
+//
+// 向数组中的每个整数前添加 '+' 或 '-' ，然后串联起所有整数，可以构造一个 表达式 ：
+//
+//     例如，nums = [2, 1] ，可以在 2 之前添加 '+' ，在 1 之前添加 '-' ，然后串联起来得到表达式 "+2-1" 。
+//
+// 返回可以通过上述方法构造的、运算结果等于 target 的不同 表达式 的数目。
+let arr=[1,1,1,1,1];
+let target=3;
+function findWay(num,S){
+    let db=[];
+    for (let i=0;i<num.length;i++){
+        db[i]=[]
+    }
+    if (!num.length)return 0;
+    let maxTar=arr.reduce(function (a,b){
+        return  a+=b;
+    },0);
+    let minTar=arr.reduce(function (a,b){
+        return  a-=b;
+    },0)
+    for ()
+}
+findWay(arr,target)
+
+</script>
+</body>
+</html>

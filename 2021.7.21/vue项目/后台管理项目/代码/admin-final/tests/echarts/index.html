@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .echarts {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2. 准备具备宽高的容器 -->
+    <div class="echarts"></div>
+    <!--
+      1. 引入echarts库
+     -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
+    <script>
+      // 3. 初始化echarts
+      const myEcharts = echarts.init(document.querySelector('.echarts'))
+      // 4. 定义图表的options
+      // const options = {
+      //   title: {
+      //     // 标题
+      //     text: 'ECharts 入门示例' // 标题内容
+      //   },
+      //   tooltip: {},
+      //   legend: {
+      //     data: ['销量']
+      //   },
+      //   xAxis: {
+      //     data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      //   },
+      //   yAxis: {
+      //     // data: [5, 10, 15, 20, 25, 30, 35, 40]
+      //   },
+      //   series: [
+      //     {
+      //       name: '销量',
+      //       type: 'bar', // 柱状图
+      //       data: [5, 20, 36, 10, 10, 20]
+      //     },
+      //     {
+      //       name: 'aaa', // 名称
+      //       type: 'line', // 折线图
+      //       data: [5, 20, 36, 10, 10, 20] // 数据
+      //     }
+      //   ]
+      // }
+
+      const options = {
+        title: {
+          text: '某站点用户访问来源',
+          subtext: '纯属虚构',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left'
+        },
+        series: [
+          {
+            name: '访问来源',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              { value: 1048, name: '搜索引擎' },
+              { value: 735, name: '直接访问' },
+              { value: 580, name: '邮件营销' },
+              { value: 484, name: '联盟广告' },
+              { value: 300, name: '视频广告' }
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
+      }
+      // 5. 将options应用上，生成图表
+      myEcharts.setOption(options)
+    </script>
+  </body>
+</html>

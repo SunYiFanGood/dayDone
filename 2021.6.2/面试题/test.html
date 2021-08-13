@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @param {number[]} salary
+     * @return {number}
+     */
+    /*let salary=[4000,3000,1000,2000]
+    let average = function(salary) {
+        let newSalary= salary.sort((a,b)=>{
+            return a-b;
+        })
+        newSalary.pop();
+        newSalary.shift();
+        let sum=0;
+        newSalary.forEach((item,index)=>{
+            sum+=item;
+        })
+        console.log(sum)
+        let avg=sum/newSalary.length;
+        return avg;
+    };
+    // average(salary)
+    console.log(average(salary))*/
+
+
+    let arr=[1,0,2,3,0,4,5,0];
+    function reArr(arr){
+        console.log(arr.join().replace(/0/ig,"0,0").split(",").map(Number))
+        arr=JSON.parse(arr.join().replace(/0/ig,...[0,0]))
+    }
+    reArr(arr);
+    console.log(arr);
+</script>
+</body>
+</html>

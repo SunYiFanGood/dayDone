@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="$destroy()">卸载</button>
+    <p v-show="isShow">那我走？</p>
+    <p v-show="!isShow">我又回来了~</p>
+    <p v-upper-case="isShow"></p>
+</div>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.directive("upper-case", function (el, binding) {
+        el.textContent = binding.value.toString().toUpperCase();
+    });
+    new Vue({
+        el:'#app',
+        data:{
+            isShow:true,
+        },
+        mounted() {
+            this.timer = setInterval(() => {
+                this.isShow = !this.isShow;
+            }, 1000);
+        },
+        beforeDestroy(){
+            clearInterval(this.timer)
+        },
+    })
+</script>
+</body>
+</html>

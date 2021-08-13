@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text">
+<input type="submit" id="sub" value="提交">
+<div id="box"></div>
+<script src="myAjax.js"></script>
+<script>
+    const text = document.getElementById("text")
+    const sub = document.getElementById("sub")
+    sub.onclick = function (e) {
+        myAjax({
+            url: "http://127.0.0.1:5000/test",
+            type: "post",
+            timeout:60000,
+            dataType: "json",
+            data:{name:"zs",age:18},
+            beforeSend:function beforeSend(){
+                console.log("beforeSend调用了")
+            },
+            success:function (data){
+                console.log(data)
+            },
+            error:function (err){
+                console.log(err)
+            },
+            complete:function (){
+                console.log("发送完成")
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

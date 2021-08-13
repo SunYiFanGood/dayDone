@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button><br>
+<div>跨域获取的信息在下面</div>
+<div id="box"></div>
+<script>
+    let btn=document.getElementById("btn")
+    let box=document.getElementById("box")
+    function fn(data){
+        console.log(data)
+        box.textContent=JSON.stringify(data);
+    }
+    btn.onclick=function (){
+        let script=document.createElement("script");
+        script.src="http://127.0.0.1:5000/test?callback=fn";
+        document.body.appendChild(script)
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,57 +1,27 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const path = require("path")
-const app = express();
-app.use(express.static("./public"))
-app.use(express.urlencoded({extended: true}))
-app.post("", (request, response) => {
-    let body = request.body;
+(async  function (){
+    const express = require("express")
+    const db=require("./dataBase/db")
+    const cookieParser = require("cookie-parser");
+    const loginR=require("./routers/loginR")
+    const loginAfterR=require("./routers/loginAfterR")
+    const app = express();
+    await db;
+    console.log("数据库连接成功")
+//定义中间件
+    app.use(express.static("./public"))//支持自动获取静态资源
+    app.use(express.urlencoded({extended: true}))//支持获取post请求主体body
+    app.use(cookieParser());//使用cookies
 
-
-    //连接数据库
-    (async function () {
-        try {
-            // 2. 连接数据库
-            await mongoose.connect('mongodb://127.0.0.1:27017/web0323', {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            })
-
-            // 3. 这里的代码可以执行表示数据库连接成功
-            console.log('数据库连接成功')
-            const Schema = mongoose.Schema;
-            const schemaObj = new Schema({
-                    username: {
-                        type: String,
-                        required: true,
-                    },
-                    pw: {
-                        type: String
-                    },
-                    register_date: {
-                        type: Date,
-                        default: Date.now(),
-                    }
-
-                },
-                {collection: 'user'}
-            );
-            const modelObj = mongoose.model('user', schemaObj);
-            const mod=modelObj.create({
-                username:body.username,
-                pw:body.pw
-            })
-            console.log(mod)
-            response.send("注册成功")
-        } catch (err) {
-            console.log(err)
-            response.send("注册失败,已存在该用户名或者用户名格式错误！")
-        }
-    }())
-
-
-})
-app.listen(5000, (err) => {
-    if (err) console.log('服务器启动失败', err)
-    else console.log('服务器启动成功')
-})
+    //应用ejs
+    app.set("view engine" , "ejs");
+    app.set("views","./mb")
+//处理注册请求
+    app.use(loginAfterR)
+//处理登录请求
+    app.use(loginR)
+//启动服务器
+    app.listen(5000, (err) => {
+        if (err) console.log('服务器启动失败', err)
+        else console.log('服务器启动成功')
+    })
+})()
